@@ -172,6 +172,13 @@
 
 
 
+  
+
+
+  <link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.css" />
+
+
+
 
 
 
@@ -494,6 +501,26 @@
 
 
 
+
+<script data-pjax  type="module">
+  const { init } = await safeImport('https:\/\/npm.webcache.cn\/@waline\/client@2.15.8\/dist\/waline.mjs', 'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5');
+  if(_$('.wcomment')) {
+    window.walineInstance = init({
+      el: '.wcomment',
+      serverURL: 'https:\/\/waline-c6lerwktj-hatorishiros-projects.vercel.app\/',
+      lang: 'zh-CN',
+      locale: JSON.parse("{}"),
+      emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+      meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+      requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+      wordLimit:  0 ,
+      comment: true,
+      pageSize:  10 ,
+      dark: 'html[data-theme="dark"]',
+      pageview:  true ,
+  });
+  }
+</script>
 
 
 

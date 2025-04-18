@@ -177,6 +177,13 @@
 
 
 
+  
+
+
+  <link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.css" />
+
+
+
 
 
 
@@ -406,7 +413,7 @@
   <div class="sidebar-state-article">
     <div>文章</div>
     
-    <div class="sidebar-state-number">46</div>
+    <div class="sidebar-state-number">48</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -416,7 +423,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">14</div>
+    <div class="sidebar-state-number">15</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -700,11 +707,36 @@ EMPRESS SYNDROME
       
 
       
-
+        <a
+          data-aos="zoom-in"
+          href="https://hatorishiro.github.io/post/%E8%99%BD%E7%84%B6%E6%98%AF%E4%B8%8D%E9%95%BF%E4%B9%85%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%9F%E6%83%B3%E8%A6%81%E5%9C%A8%E4%BD%99%E4%B8%8B%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%E6%B4%BB%E5%BE%97%E5%83%8F%E4%B8%AA%E4%BA%BA/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="https//hatorishiro.github.io/post/%e8%99%bd%e7%84%b6%e6%98%af%e4%b8%8d%e9%95%bf%e4%b9%85%e7%9a%84%e7%94%9f%e5%91%bd%e4%b9%9f%e6%83%b3%e8%a6%81%e5%9c%a8%e4%bd%99%e4%b8%8b%e7%9a%84%e4%ba%ba%e7%94%9f%e9%87%8c%e6%b4%bb%e5%be%97%e5%83%8f%e4%b8%aa%e4%ba%ba/"
+            itemprop="commentCount"
+          ></span>
+          留言
+        </a>
       
 
       
 
+      
+
+      
+        <span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/post/%E8%99%BD%E7%84%B6%E6%98%AF%E4%B8%8D%E9%95%BF%E4%B9%85%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%9F%E6%83%B3%E8%A6%81%E5%9C%A8%E4%BD%99%E4%B8%8B%E7%9A%84%E4%BA%BA%E7%94%9F%E9%87%8C%E6%B4%BB%E5%BE%97%E5%83%8F%E4%B8%AA%E4%BA%BA/"
+            >0</span
+          >
+          <em class="post-meta-item-text">阅读量</em>
+        </span>
       
       <ul class="article-tag-list" itemprop="keywords">
   
@@ -783,6 +815,12 @@ EMPRESS SYNDROME
 
 
 
+  <div
+    id="comments"
+    class="wcomment"
+    data-aos="fade-up"
+  ></div>
+
 
 
 
@@ -797,6 +835,12 @@ EMPRESS SYNDROME
         
 
 
+
+  
+  
+
+  
+  
 
   
   
@@ -967,7 +1011,7 @@ EMPRESS SYNDROME
       <div>
         <span class="icon-brush"
           >&nbsp;
-            54.7k
+            58.6k
           </span
         >
         &nbsp;|&nbsp;
@@ -975,7 +1019,7 @@ EMPRESS SYNDROME
           
           
 
-          02:17
+          02:25
         </span>
       </div>
     
@@ -1055,7 +1099,7 @@ EMPRESS SYNDROME
   <div class="sidebar-state-article">
     <div>文章</div>
     
-    <div class="sidebar-state-number">46</div>
+    <div class="sidebar-state-number">48</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -1065,7 +1109,7 @@ EMPRESS SYNDROME
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">14</div>
+    <div class="sidebar-state-number">15</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -1351,6 +1395,26 @@ EMPRESS SYNDROME
 
 
 
+
+<script data-pjax  type="module">
+  const { init } = await safeImport('https:\/\/npm.webcache.cn\/@waline\/client@2.15.8\/dist\/waline.mjs', 'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5');
+  if(_$('.wcomment')) {
+    window.walineInstance = init({
+      el: '.wcomment',
+      serverURL: 'https:\/\/waline-c6lerwktj-hatorishiros-projects.vercel.app\/',
+      lang: 'zh-CN',
+      locale: JSON.parse("{}"),
+      emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+      meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+      requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+      wordLimit:  0 ,
+      comment: true,
+      pageSize:  10 ,
+      dark: 'html[data-theme="dark"]',
+      pageview:  true ,
+  });
+  }
+</script>
 
 
 

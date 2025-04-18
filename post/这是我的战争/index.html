@@ -177,6 +177,13 @@
 
 
 
+  
+
+
+  <link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.css" />
+
+
+
 
 
 
@@ -395,7 +402,7 @@
   <div class="sidebar-state-article">
     <div>文章</div>
     
-    <div class="sidebar-state-number">46</div>
+    <div class="sidebar-state-number">48</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -405,7 +412,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">14</div>
+    <div class="sidebar-state-number">15</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -610,11 +617,36 @@
       
 
       
-
+        <a
+          data-aos="zoom-in"
+          href="https://hatorishiro.github.io/post/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E6%88%98%E4%BA%89/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="https//hatorishiro.github.io/post/%e8%bf%99%e6%98%af%e6%88%91%e7%9a%84%e6%88%98%e4%ba%89/"
+            itemprop="commentCount"
+          ></span>
+          留言
+        </a>
       
 
       
 
+      
+
+      
+        <span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/post/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E6%88%98%E4%BA%89/"
+            >0</span
+          >
+          <em class="post-meta-item-text">阅读量</em>
+        </span>
       
       <ul class="article-tag-list" itemprop="keywords">
   
@@ -684,6 +716,12 @@
 
 
 
+  <div
+    id="comments"
+    class="wcomment"
+    data-aos="fade-up"
+  ></div>
+
 
 
 
@@ -698,6 +736,12 @@
         
 
 
+
+  
+  
+
+  
+  
 
   
   
@@ -868,7 +912,7 @@
       <div>
         <span class="icon-brush"
           >&nbsp;
-            54.7k
+            58.6k
           </span
         >
         &nbsp;|&nbsp;
@@ -876,7 +920,7 @@
           
           
 
-          02:17
+          02:25
         </span>
       </div>
     
@@ -945,7 +989,7 @@
   <div class="sidebar-state-article">
     <div>文章</div>
     
-    <div class="sidebar-state-number">46</div>
+    <div class="sidebar-state-number">48</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -955,7 +999,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">14</div>
+    <div class="sidebar-state-number">15</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -1241,6 +1285,26 @@
 
 
 
+
+<script data-pjax  type="module">
+  const { init } = await safeImport('https:\/\/npm.webcache.cn\/@waline\/client@2.15.8\/dist\/waline.mjs', 'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5');
+  if(_$('.wcomment')) {
+    window.walineInstance = init({
+      el: '.wcomment',
+      serverURL: 'https:\/\/waline-c6lerwktj-hatorishiros-projects.vercel.app\/',
+      lang: 'zh-CN',
+      locale: JSON.parse("{}"),
+      emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+      meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+      requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+      wordLimit:  0 ,
+      comment: true,
+      pageSize:  10 ,
+      dark: 'html[data-theme="dark"]',
+      pageview:  true ,
+  });
+  }
+</script>
 
 
 
