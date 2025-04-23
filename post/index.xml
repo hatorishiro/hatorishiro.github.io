@@ -6,8 +6,15 @@
     <description>Recent content on 世界的某个角落</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Apr 2025 23:22:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Apr 2025 19:29:00 +0800</lastBuildDate>
     <atom:link href="https://hatorishiro.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客学习笔记</title>
+      <link>https://hatorishiro.github.io/post/%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 23 Apr 2025 19:29:00 +0800</pubDate>
+      <guid>https://hatorishiro.github.io/post/%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;开设博客&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%bc%80%e8%ae%be%e5%8d%9a%e5%ae%a2&#34;&gt;&lt;/a&gt;&#xA;开设博客&#xA;&lt;/h2&gt;&lt;p&gt;一开始应该是看到了莱特雷的这一篇&lt;a href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;&gt;【Hugo】Hugo + Github 免费部署自己的博客&lt;/a&gt;，突然萌发出了想做个人博客的念头。&lt;/p&gt;&#xA;&lt;p&gt;在搜索主题的时候，一眼就被D-Sketon的&lt;a href=&#34;https://github.com/D-Sketon/hugo-theme-reimu&#34;&gt;博丽灵梦主题&lt;/a&gt;迷住了。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>百合姬 2025年6月号 感想</title>
       <link>https://hatorishiro.github.io/post/%E7%99%BE%E5%90%88%E5%A7%AC-2025%E5%B9%B46%E6%9C%88%E5%8F%B7-%E6%84%9F%E6%83%B3/</link>
