@@ -3312,3 +3312,116 @@ a, .main-nav-icon, .popup-btn-close {
   height: 2px;
   background: var(--red-1);
 }
+
+.goods-filter {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.goods-filter .filter-btn {
+  background: #ffe4e4;
+  color: #ff5252;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.goods-filter .filter-btn:hover {
+  background-color: #d33;
+  color: #fff;
+}
+
+.goods-page #subtitle-wrap {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -170px;
+  text-align: center;
+}
+
+.goods-page #subtitle {
+  font-family: var(--title-font, "Segoe UI", sans-serif);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
+
+#goods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.goods-bankuai {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 220px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+  word-break: break-word;
+}
+
+.goods-bankuai:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.goods-bankuai .goods-duiqi img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.goods-bankuai .goods-duiqi img:hover {
+  transform: scale(1.05);
+  cursor: zoom-in;
+}
+
+.goods-bankuai .goods-title {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.goods-bankuai .goods-title a {
+  color: #222;
+  text-decoration: none;
+}
+
+.goods-bankuai .goods-title a:hover {
+  color: #d33;
+  text-decoration: underline;
+}
+
+.goods-bankuai .goods-jiage {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.goods-bankuai .goods-note {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  #goods {
+    justify-content: center;
+  }
+  .goods-bankuai {
+    width: 90%;
+    max-width: 360px;
+  }
+}

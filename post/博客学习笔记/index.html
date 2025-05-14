@@ -3,8 +3,9 @@
   lang="zh-cn"
   
 >
-  <head>
-    <meta charset="utf-8" />
+<head>
+  
+  <meta charset="utf-8" />
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -36,7 +37,7 @@
 
 
 <script>
-  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"clipboard\":{\"copyright\":{\"content\":\"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！\",\"count\":50,\"enable\":false},\"fail\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"success\":\"复制成功(*^▽^*)\"},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_bq08450reo\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":\"本文最后更新于 {time}，请注意文中内容可能已经发生变化。\"}}");
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"clipboard\":{\"copyright\":{\"content\":\"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！\",\"count\":50,\"enable\":false},\"fail\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"success\":\"复制成功(*^▽^*)\"},\"code_block\":{\"expand\":10},\"icon_font\":\"4552607_bq08450reo\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":\"本文最后更新于 {time}，请注意文中内容可能已经发生变化。\"}}");
 </script>
 
 
@@ -123,7 +124,7 @@
   />
   <meta property="article:author" content="人毛" />
   <meta property="article:published_time" content="2025-04-23T19:29:00&#43;08:00" />
-  <meta property="article:modified_time" content="2025-04-24T01:09:00&#43;08:00" />
+  <meta property="article:modified_time" content="2025-05-14T13:22:00&#43;08:00" />
   
     <meta property="article:tag" content="博客" />
   
@@ -149,7 +150,7 @@
 
 
   
- <link rel="stylesheet" href="/css/main.min.667d8adc13308d83c44d9612d5642a545166f909af39baf4cd360d854ab4e512.css" />
+ <link rel="stylesheet" href="/css/main.min.5d866a5698befa4ae54f5af78589aee328fe35ef53c46d5bb03c1b07dfe31b30.css" />
 
 
 
@@ -218,7 +219,8 @@
 
 
 
-  </head>
+</head>
+  
   <body>
     
   <div id='loader'>
@@ -318,6 +320,17 @@
         <a class="main-nav-link" href="/friend">友链</a>
       </span>
     
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>
+          
+            
+              &#xe62b;
+            
+          
+        </div>
+        <a class="main-nav-link" href="/goods">宝箱</a>
+      </span>
+    
     <a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav">
@@ -381,6 +394,19 @@
     <li><a href="#评论通知功能">评论通知功能</a>
       <ul>
         <li></li>
+      </ul>
+    </li>
+    <li><a href="#制作宝箱页面">制作宝箱页面</a>
+      <ul>
+        <li><a href="#goodsjson">goods.json</a></li>
+        <li><a href="#goodsmd">goods.md</a></li>
+        <li><a href="#goodsscss">goods.scss</a></li>
+        <li><a href="#图片文件夹">图片文件夹</a></li>
+        <li><a href="#paramsyml">params.yml</a></li>
+        <li><a href="#zh-cnyml">zh-CN.yml</a></li>
+        <li><a href="#mainscss">main.scss</a></li>
+        <li><a href="#baseofhtml">baseof.html</a></li>
+        <li><a href="#singlehtml">single.html</a></li>
       </ul>
     </li>
   </ul>
@@ -486,6 +512,22 @@
       <div class="sidebar-menu-link">友链</div>
     </div>
   
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/goods"
+        aria-label="宝箱"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>
+        
+          
+            &#xe62b;
+          
+        
+      </div>
+      <div class="sidebar-menu-link">宝箱</div>
+    </div>
+  
 </div>
 
         </div>
@@ -527,7 +569,7 @@
       >2025-04-23</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-04-24</time
+      >2025-05-14</time
     >
   </a>
 </div>
@@ -582,7 +624,237 @@
 <a class="header-anchor" href="#%e9%80%9a%e7%9f%a5%e7%94%bb%e9%9d%a2"></a>
 通知画面
 </h4><p><img src="/post/%E5%9B%BE%E7%89%87/%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AF%84%E8%AE%BA%E9%80%9A%E7%9F%A5.png" alt=""></p>
-
+<h2 id="制作宝箱页面">
+<a class="header-anchor" href="#%e5%88%b6%e4%bd%9c%e5%ae%9d%e7%ae%b1%e9%a1%b5%e9%9d%a2"></a>
+制作宝箱页面
+</h2><p>一直很馋别人的展柜页面，最近终于折腾成功了，虽然跟一开始想象中的不同，但也还不错。<br>
+我参照了木木木木木的<a href="https://immmmm.com/hugo-goods-page/">《Hugo 创建「好物」页面》</a>教程。<br>
+一开始对着教程折腾了半天都不对劲，后来让DeepSeek和chatGPT来回改才做到了现在的样子。<br>
+这次学到的一点是：如果怎么改都不对的话，有可能是你想改的元素采用了特殊的命名或者写法。 <br>
+有以下两种方式可以处理： <br>
+1.在预览网页右键菜单中选择“检查”，查看要改的元素代码叫什么名字，再返回给AI助手。<br>
+2.在整个库里搜索关键词，找出有关联的文件，把相关内容返回给AI助手。<br>
+这样基本上就能解决七七八八的疑难杂症了。</p>
+<p>另外，如果是关于博客的基础功能实现问题，可以直接去该主题的github上看。我在写这篇的时候发现代码块不起作用，查了一下<a href="https://github.com/D-Sketon/hugo-theme-reimu">github发布页</a>就发现了解答。</p>
+<p>这里直接记录一下有用的信息和代码，欢迎拿去使用。</p>
+<h3 id="goodsjson">
+<a class="header-anchor" href="#goodsjson"></a>
+goods.json
+</h3><p>路径：\assets\goods<br>
+解说：要展示的内容全部都放在这里面。<br>
+注1：两个信息卡片之间的<code>},</code>要加逗号，最后一张卡片的结尾不需要加。<br>
+注2：两个标签之间记得加逗号</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;good&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            &#34;image&#34;: &#34;/goods/苦涩巧克力豆.jpg&#34;,
+</span></span><span class="line"><span class="cl">            &#34;jiage&#34;: &#34;幌山 あき&#34;,
+</span></span><span class="line"><span class="cl">            &#34;title&#34;: &#34;苦涩巧克力豆&#34;,
+</span></span><span class="line"><span class="cl">            &#34;link&#34;: &#34;https://www.amazon.co.jp/%E3%83%9E%E3%83%BC%E3%83%96%E3%83%AB%E3%83%93%E3%82%BF%E3%83%BC%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%83%BC%E3%83%88-%E3%83%93%E3%83%BC%E3%83%A0%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E5%B9%8C%E5%B1%B1-%E3%81%82%E3%81%8D/dp/4047367427&#34;,
+</span></span><span class="line"><span class="cl">            &#34;note&#34;: &#34;消费自己也被社会所消费。&lt;br&gt;深入挖掘人性的严肃作品。&lt;br&gt;两个人在这浑浊不堪的世间用自己的方式拼命挣扎，却还是出淤泥而不染的样子真的非常耀眼。&#34;,
+</span></span><span class="line"><span class="cl">            &#34;tags&#34;: [&#34;漫画&#34;,&#34;百合&#34;]
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            &#34;image&#34;: &#34;/goods/注意安全哦大姐姐.png&#34;,
+</span></span><span class="line"><span class="cl">            &#34;jiage&#34;: &#34;サスケ&#34;,
+</span></span><span class="line"><span class="cl">            &#34;title&#34;: &#34;注意安全哦、大姐姐&#34;,
+</span></span><span class="line"><span class="cl">            &#34;link&#34;: &#34;https://www.amazon.co.jp/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%81%AA%E3%82%88%E3%80%81%E3%81%8A%E5%A7%89%E3%81%95%E3%82%93%E3%80%82-1%E3%80%90%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E7%89%B9%E5%85%B8%E4%BB%98%E3%80%91-4%E3%82%B3%E3%83%9EKINGS%E3%81%B1%E3%82%8C%E3%81%A3%E3%81%A8%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E3%82%B5%E3%82%B9%E3%82%B1-ebook/dp/B099JKGYQM/&#34;,
+</span></span><span class="line"><span class="cl">            &#34;note&#34;: &#34;稚气未脱的OL × 成熟小学生。&lt;br&gt;很喜欢这两人真诚的相处。&lt;br&gt;&lt;br&gt;我的手机壁纸是她们的看烟花合照。&#34;,
+</span></span><span class="line"><span class="cl">            &#34;tags&#34;: [&#34;漫画&#34;,&#34;百合&#34;]
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="goodsmd">
+<a class="header-anchor" href="#goodsmd"></a>
+goods.md
+</h3><p>路径：\content<br>
+解说：页面，不可或缺，但也没什么内容。<br>
+注释：最下面原本还有一行禁用评论的代码，但是写上去的话这篇文章的评论区也会跟着消失……代码块里的内容居然是可以在文章页面执行的吗？吓人……</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;我的百宝箱&#34;
+</span></span><span class="line"><span class="cl">cover: /goods/cover.jpg
+</span></span><span class="line"><span class="cl">subtitle: &#34;恭喜你打开了我的百宝箱，希望这里面也有你喜欢的宝物。&#34;
+</span></span><span class="line"><span class="cl">layout: &#34;goods&#34;  # 使用专用布局
+</span></span><span class="line"><span class="cl">params:
+</span></span><span class="line"><span class="cl">  sidebar: false  # 禁用侧边栏
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></div><h3 id="goodsscss">
+<a class="header-anchor" href="#goodsscss"></a>
+goods.scss
+</h3><p>路径：\assets\css<br>
+解说：一些自定义样式 ，改改字的颜色和位置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">margin</span><span class="p">:</span> <span class="mi">1</span><span class="n">rem</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">filter</span><span class="o">-</span><span class="n">btn</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="p">:</span> <span class="c1">#ffe4e4;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="c1">#ddd;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">padding</span><span class="p">:</span> <span class="mf">0.4</span><span class="n">rem</span> <span class="mi">1</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="p">:</span> <span class="mf">0.3</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cursor</span><span class="p">:</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mf">0.9</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">all</span> <span class="mf">0.2</span><span class="n">s</span> <span class="nb">ease</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#d33;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">color</span><span class="p">:</span> <span class="c1">#fff;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">page</span> <span class="c1">#subtitle-wrap {</span>
+</span></span><span class="line"><span class="cl">  <span class="n">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">top</span><span class="p">:</span> <span class="o">-</span><span class="mi">170</span><span class="n">px</span><span class="p">;</span> <span class="o">//</span> <span class="err">调整为合适的负值，例如</span> <span class="o">-</span><span class="mi">20</span><span class="n">px</span><span class="err">、</span><span class="o">-</span><span class="mi">40</span><span class="n">px</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">page</span> <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">title</span><span class="o">-</span><span class="n">font</span><span class="p">,</span> <span class="s1">&#39;Segoe UI&#39;</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#goods {</span>
+</span></span><span class="line"><span class="cl">  <span class="n">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">flex</span><span class="o">-</span><span class="n">wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">justify</span><span class="o">-</span><span class="n">content</span><span class="p">:</span> <span class="n">flex</span><span class="o">-</span><span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gap</span><span class="p">:</span> <span class="mi">1</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#fff;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">8</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.08</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">width</span><span class="p">:</span> <span class="mi">220</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">padding</span><span class="p">:</span> <span class="mi">1</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="mf">0.2</span><span class="n">s</span> <span class="nb">ease</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">word</span><span class="o">-</span><span class="k">break</span><span class="p">:</span> <span class="k">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transform</span><span class="p">:</span> <span class="n">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="n">px</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.12</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">duiqi</span> <span class="n">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">height</span><span class="p">:</span> <span class="n">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">bottom</span><span class="p">:</span> <span class="mf">0.8</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="mf">0.2</span><span class="n">s</span> <span class="nb">ease</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mf">1.05</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cursor</span><span class="p">:</span> <span class="n">zoom</span><span class="o">-</span><span class="ow">in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="n">bold</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">bottom</span><span class="p">:</span> <span class="mf">0.3</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">color</span><span class="p">:</span> <span class="c1">#222;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">color</span><span class="p">:</span> <span class="c1">#d33;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="p">:</span> <span class="n">underline</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">jiage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#888;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mf">0.9</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">bottom</span><span class="p">:</span> <span class="mf">0.3</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">note</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mf">0.85</span><span class="n">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#666;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line</span><span class="o">-</span><span class="n">height</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">600</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#goods {</span>
+</span></span><span class="line"><span class="cl">    <span class="n">justify</span><span class="o">-</span><span class="n">content</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">width</span><span class="p">:</span> <span class="mi">90</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">360</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="图片文件夹">
+<a class="header-anchor" href="#%e5%9b%be%e7%89%87%e6%96%87%e4%bb%b6%e5%a4%b9"></a>
+图片文件夹
+</h3><p>路径：\static\goods<br>
+解说：放图片用的，顺带一提我的图片路径是<code>/goods/文件名.jpg</code></p>
+<h3 id="paramsyml">
+<a class="header-anchor" href="#paramsyml"></a>
+params.yml
+</h3><p>路径：\config_default<br>
+解说：在主页添加大分页。具体的话是在<code>menu:</code>的最后加上以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  - name: goods
+</span></span><span class="line"><span class="cl">    url: &#34;goods&#34;
+</span></span><span class="line"><span class="cl">    icon:
+</span></span></code></pre></div><h3 id="zh-cnyml">
+<a class="header-anchor" href="#zh-cnyml"></a>
+zh-CN.yml
+</h3><p>路径：\i18n<br>
+解说：给大分页加上了中文名，有需要的话同目录下的<code>en.yml</code> <code>ja.yml</code> <code>zh-TW.yml</code>文件里也都可以加上对应的多语言分页名。具体是加在<code>home:</code>那一排的最后面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">goods: 宝箱
+</span></span></code></pre></div><h3 id="mainscss">
+<a class="header-anchor" href="#mainscss"></a>
+main.scss
+</h3><p>路径：\assets\css<br>
+解说：如果不加上那句神奇的咒语的话卡片的白色背景和按钮的圆角就都不会生效了。我加在了最后，<code>{{ end }}</code>前面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@import &#34;goods&#34;;
+</span></span></code></pre></div><h3 id="baseofhtml">
+<a class="header-anchor" href="#baseofhtml"></a>
+baseof.html
+</h3><p>路径：\layouts_default<br>
+解说：让宝箱页面可以读取自定义样式。加在开头<code>  {{ if .Site.Params.dark_mode.enable }}data-theme=&quot;dark&quot;{{ end }}</code>下面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  {{ if eq .Layout &#34;goods&#34; }} &lt;!-- 仅对好物页面加载 --&gt;
+</span></span><span class="line"><span class="cl">    {{ with resources.Get &#34;css/goods.scss&#34; }}
+</span></span><span class="line"><span class="cl">      {{ $style := . | toCSS | minify | fingerprint }}
+</span></span><span class="line"><span class="cl">      &lt;link rel=&#34;stylesheet&#34; href=&#34;{{ $style.Permalink }}&#34;&gt;
+</span></span><span class="line"><span class="cl">    {{ else }}
+</span></span><span class="line"><span class="cl">      {{ warnf &#34;无法找到 assets/css/goods.scss&#34; }}
+</span></span><span class="line"><span class="cl">    {{ end }}
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl">  {{ partial &#34;head.html&#34; . }}
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span><span class="line"><span class="cl">  &lt;!-- 其余内容保持不变 --&gt;
+</span></span></code></pre></div><h3 id="singlehtml">
+<a class="header-anchor" href="#singlehtml"></a>
+single.html
+</h3><p>路径：\layouts\goods<br>
+解说：对宝物页面没影响，但是如果没有这个文件的话我这篇文章里面的评论区会消失。好像是因为包含了引用宝物页面布局，但是布局里提到了隐藏评论区，进而影响到了这篇文章。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl">&lt;main class=&#34;no-sidebar&#34;&gt;
+</span></span><span class="line"><span class="cl">  {{ partial &#34;goods-content&#34; . }}
+</span></span><span class="line"><span class="cl">&lt;/main&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;!-- 添加评论区支持 --&gt;
+</span></span><span class="line"><span class="cl">{{ if .Params.comments }}
+</span></span><span class="line"><span class="cl">  &lt;div class=&#34;wcomment&#34; data-aos=&#34;fade-up&#34;&gt;&lt;/div&gt;
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div>
       
     </div>
     <footer class="article-footer">
@@ -902,7 +1174,7 @@
       <div>
         <span class="icon-brush"
           >&nbsp;
-            70.7k
+            72.6k
           </span
         >
         &nbsp;|&nbsp;
@@ -910,7 +1182,7 @@
           
           
 
-          02:52
+          02:56
         </span>
       </div>
     
@@ -958,6 +1230,19 @@
     <li><a href="#评论通知功能">评论通知功能</a>
       <ul>
         <li></li>
+      </ul>
+    </li>
+    <li><a href="#制作宝箱页面">制作宝箱页面</a>
+      <ul>
+        <li><a href="#goodsjson">goods.json</a></li>
+        <li><a href="#goodsmd">goods.md</a></li>
+        <li><a href="#goodsscss">goods.scss</a></li>
+        <li><a href="#图片文件夹">图片文件夹</a></li>
+        <li><a href="#paramsyml">params.yml</a></li>
+        <li><a href="#zh-cnyml">zh-CN.yml</a></li>
+        <li><a href="#mainscss">main.scss</a></li>
+        <li><a href="#baseofhtml">baseof.html</a></li>
+        <li><a href="#singlehtml">single.html</a></li>
       </ul>
     </li>
   </ul>
@@ -1061,6 +1346,22 @@
         
       </div>
       <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/goods"
+        aria-label="宝箱"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>
+        
+          
+            &#xe62b;
+          
+        
+      </div>
+      <div class="sidebar-menu-link">宝箱</div>
     </div>
   
 </div>
