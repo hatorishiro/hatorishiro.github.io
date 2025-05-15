@@ -124,7 +124,7 @@
   />
   <meta property="article:author" content="人毛" />
   <meta property="article:published_time" content="2025-04-23T19:29:00&#43;08:00" />
-  <meta property="article:modified_time" content="2025-05-14T13:22:00&#43;08:00" />
+  <meta property="article:modified_time" content="2025-05-16T02:51:00&#43;08:00" />
   
     <meta property="article:tag" content="博客" />
   
@@ -150,7 +150,7 @@
 
 
   
- <link rel="stylesheet" href="/css/main.min.5d866a5698befa4ae54f5af78589aee328fe35ef53c46d5bb03c1b07dfe31b30.css" />
+ <link rel="stylesheet" href="/css/main.min.16a9412d5b7fc6b3a66f54bb904077fe311bf33e6938e3232ce03803780fda19.css" />
 
 
 
@@ -409,6 +409,12 @@
         <li><a href="#singlehtml">single.html</a></li>
       </ul>
     </li>
+    <li><a href="#在宝箱页面添加音乐播放器">在宝箱页面添加音乐播放器</a>
+      <ul>
+        <li><a href="#goodshtml">goods.html</a></li>
+        <li><a href="#goodsscss-1">goods.scss</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -569,7 +575,7 @@
       >2025-04-23</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-05-14</time
+      >2025-05-16</time
     >
   </a>
 </div>
@@ -854,6 +860,130 @@ single.html
 </span></span><span class="line"><span class="cl">  &lt;div class=&#34;wcomment&#34; data-aos=&#34;fade-up&#34;&gt;&lt;/div&gt;
 </span></span><span class="line"><span class="cl">{{ end }}
 </span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><h2 id="在宝箱页面添加音乐播放器">
+<a class="header-anchor" href="#%e5%9c%a8%e5%ae%9d%e7%ae%b1%e9%a1%b5%e9%9d%a2%e6%b7%bb%e5%8a%a0%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8"></a>
+在宝箱页面添加音乐播放器
+</h2><p>比我想象中还简单，只要把想听的歌都塞到spotify的歌单里，再使用网站自带的嵌入代码就行了。<br>
+比较麻烦的是折腾了一下布局，放在上面太大了还影响副标题显示，放在侧边又感觉很碍事。<br>
+最后找到的折中方法就是点击按钮可以显示/隐藏，目前看起来还不错。</p>
+<p>这里分享一下代码：</p>
+<h3 id="goodshtml">
+<a class="header-anchor" href="#goodshtml"></a>
+goods.html
+</h3><p>路径：\layouts_default
+解说：为指定网页添加音乐播放器，在开头部分加入以下代码。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">&lt;!--</span> <span class="err">音乐播放器部分</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;music-player-container&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;music-player-trigger&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">&#34;toggleMusicPlayer()&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">svg</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="n">width</span><span class="o">=</span><span class="s2">&#34;24&#34;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&#34;24&#34;</span> <span class="n">viewBox</span><span class="o">=</span><span class="s2">&#34;0 0 24 24&#34;</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&#34;none&#34;</span> <span class="n">stroke</span><span class="o">=</span><span class="s2">&#34;white&#34;</span> <span class="n">stroke</span><span class="o">-</span><span class="n">width</span><span class="o">=</span><span class="s2">&#34;2&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">path</span> <span class="n">d</span><span class="o">=</span><span class="s2">&#34;M9 18V5l12-2v13&#34;</span><span class="o">&gt;&lt;/</span><span class="n">path</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">circle</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&#34;6&#34;</span> <span class="n">cy</span><span class="o">=</span><span class="s2">&#34;18&#34;</span> <span class="n">r</span><span class="o">=</span><span class="s2">&#34;3&#34;</span><span class="o">&gt;&lt;/</span><span class="n">circle</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">circle</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&#34;18&#34;</span> <span class="n">cy</span><span class="o">=</span><span class="s2">&#34;16&#34;</span> <span class="n">r</span><span class="o">=</span><span class="s2">&#34;3&#34;</span><span class="o">&gt;&lt;/</span><span class="n">circle</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">svg</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;spotify-sidebar&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">iframe</span>
+</span></span><span class="line"><span class="cl">      <span class="n">src</span><span class="o">=</span><span class="s2">&#34;https://open.spotify.com/embed/playlist/4JbiOYYS01yIimiyTUA3T7?utm_source=generator&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span><span class="o">=</span><span class="s2">&#34;100%&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">height</span><span class="o">=</span><span class="s2">&#34;352&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">frameborder</span><span class="o">=</span><span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">allowfullscreen</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">allow</span><span class="o">=</span><span class="s2">&#34;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">loading</span><span class="o">=</span><span class="s2">&#34;lazy&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">toggleMusicPlayer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">player</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;.spotify-sidebar&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">trigger</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;.music-player-trigger&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">player</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trigger</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s1">&#39;rotate-360&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span></code></pre></div><h3 id="goodsscss-1">
+<a class="header-anchor" href="#goodsscss-1"></a>
+goods.scss
+</h3><p>路径：\assets\css
+解说：加入触发式按钮</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/* 音乐播放器容器 */
+</span></span><span class="line"><span class="cl">.music-player-container {
+</span></span><span class="line"><span class="cl">  position: fixed;
+</span></span><span class="line"><span class="cl">  right: 30px;
+</span></span><span class="line"><span class="cl">  bottom: 120px;
+</span></span><span class="line"><span class="cl">  z-index: 999;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  /* 触发按钮样式 - 调整描边和旋转速度 */
+</span></span><span class="line"><span class="cl">  .music-player-trigger {
+</span></span><span class="line"><span class="cl">    width: 50px;
+</span></span><span class="line"><span class="cl">    height: 50px;
+</span></span><span class="line"><span class="cl">    background: #ff7575;
+</span></span><span class="line"><span class="cl">    border-radius: 50%;
+</span></span><span class="line"><span class="cl">    display: flex;
+</span></span><span class="line"><span class="cl">    align-items: center;
+</span></span><span class="line"><span class="cl">    justify-content: center;
+</span></span><span class="line"><span class="cl">    cursor: pointer;
+</span></span><span class="line"><span class="cl">    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+</span></span><span class="line"><span class="cl">    transition: all 0.3s ease;
+</span></span><span class="line"><span class="cl">    border: 3px solid white; /* 加粗描边(从2px改为3px) */
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    svg {
+</span></span><span class="line"><span class="cl">      width: 24px;
+</span></span><span class="line"><span class="cl">      height: 24px;
+</span></span><span class="line"><span class="cl">      stroke: white;
+</span></span><span class="line"><span class="cl">      transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 旋转时间从0.6s延长到1s */
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &amp;:hover {
+</span></span><span class="line"><span class="cl">      background: #ff5a5a;
+</span></span><span class="line"><span class="cl">      transform: scale(1.05);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    /* 360度旋转动画 */
+</span></span><span class="line"><span class="cl">    &amp;.rotate-360 svg {
+</span></span><span class="line"><span class="cl">      transform: rotate(360deg);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  /* 侧边播放器 */
+</span></span><span class="line"><span class="cl">  .spotify-sidebar {
+</span></span><span class="line"><span class="cl">    position: fixed;
+</span></span><span class="line"><span class="cl">    width: 30vw;
+</span></span><span class="line"><span class="cl">    max-width: 350px;
+</span></span><span class="line"><span class="cl">    height: 0;
+</span></span><span class="line"><span class="cl">    right: -100%;
+</span></span><span class="line"><span class="cl">    bottom: 180px;
+</span></span><span class="line"><span class="cl">    overflow: hidden;
+</span></span><span class="line"><span class="cl">    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+</span></span><span class="line"><span class="cl">    border-radius: 12px 0 0 12px;
+</span></span><span class="line"><span class="cl">    box-shadow: -5px 5px 15px rgba(0,0,0,0.2);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &amp;.active {
+</span></span><span class="line"><span class="cl">      right: 0;
+</span></span><span class="line"><span class="cl">      height: 352px;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    iframe {
+</span></span><span class="line"><span class="cl">      width: 100%;
+</span></span><span class="line"><span class="cl">      height: 100%;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/* 响应式调整 */
+</span></span><span class="line"><span class="cl">@media (max-width: 768px) {
+</span></span><span class="line"><span class="cl">  .music-player-container {
+</span></span><span class="line"><span class="cl">    right: 15px;
+</span></span><span class="line"><span class="cl">    bottom: 100px;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    .spotify-sidebar {
+</span></span><span class="line"><span class="cl">      width: 85vw;
+</span></span><span class="line"><span class="cl">      bottom: 140px;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></div>
       
     </div>
@@ -1174,7 +1304,7 @@ single.html
       <div>
         <span class="icon-brush"
           >&nbsp;
-            72.6k
+            73.1k
           </span
         >
         &nbsp;|&nbsp;
@@ -1182,7 +1312,7 @@ single.html
           
           
 
-          02:56
+          02:57
         </span>
       </div>
     
@@ -1243,6 +1373,12 @@ single.html
         <li><a href="#mainscss">main.scss</a></li>
         <li><a href="#baseofhtml">baseof.html</a></li>
         <li><a href="#singlehtml">single.html</a></li>
+      </ul>
+    </li>
+    <li><a href="#在宝箱页面添加音乐播放器">在宝箱页面添加音乐播放器</a>
+      <ul>
+        <li><a href="#goodshtml">goods.html</a></li>
+        <li><a href="#goodsscss-1">goods.scss</a></li>
       </ul>
     </li>
   </ul>
