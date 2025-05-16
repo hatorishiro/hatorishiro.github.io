@@ -3426,13 +3426,15 @@ a, .main-nav-icon, .popup-btn-close {
   }
 }
 
-/* 音乐播放器容器 */
+/* 音乐播放器容器 - 桌面端保持原样 */
 .music-player-container {
   position: fixed;
   right: 30px;
+  /* 大屏保持原位置 */
   bottom: 120px;
+  /* 大屏保持原位置 */
   z-index: 999;
-  /* 触发按钮样式 - 调整描边和旋转速度 */
+  /* 触发按钮样式 */
   /* 侧边播放器 */
 }
 
@@ -3448,8 +3450,7 @@ a, .main-nav-icon, .popup-btn-close {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   border: 3px solid white;
-  /* 加粗描边(从2px改为3px) */
-  /* 360度旋转动画 */
+  /* 保持加粗描边 */
 }
 
 .music-player-container .music-player-trigger svg {
@@ -3457,7 +3458,7 @@ a, .main-nav-icon, .popup-btn-close {
   height: 24px;
   stroke: white;
   transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  /* 旋转时间从0.6s延长到1s */
+  /* 保持1秒旋转 */
 }
 
 .music-player-container .music-player-trigger:hover {
@@ -3492,14 +3493,37 @@ a, .main-nav-icon, .popup-btn-close {
   height: 100%;
 }
 
-/* 响应式调整 */
+/* 仅调整移动端 */
 @media (max-width: 768px) {
   .music-player-container {
-    right: 15px;
-    bottom: 100px;
+    right: calc(30px - 2px);
+    /* 向左移动半径25px */
+    bottom: calc(120px - 20px);
+    /* 向上移动直径50px */
   }
   .music-player-container .spotify-sidebar {
     width: 85vw;
-    bottom: 140px;
+    bottom: calc(220px - 50px);
+    /* 同步上移50px */
+  }
+  .music-player-container .spotify-sidebar.active {
+    right: calc(30px - 25px);
+    /* 与触发按钮对齐 */
+  }
+}
+
+/* 超小屏幕设备（如竖屏手机） */
+@media (max-width: 480px) {
+  .music-player-container {
+    right: calc(30px - 25px - 5px);
+    /* 在半径基础上再左移5px */
+    bottom: calc(120px - 50px - 0px);
+    /* 在直径基础上再上移10px */
+  }
+  .music-player-container .spotify-sidebar {
+    bottom: calc(220px - 50px - 10px);
+  }
+  .music-player-container .spotify-sidebar.active {
+    right: calc(30px - 25px - 5px);
   }
 }

@@ -150,7 +150,7 @@
 
 
   
- <link rel="stylesheet" href="/css/main.min.16a9412d5b7fc6b3a66f54bb904077fe311bf33e6938e3232ce03803780fda19.css" />
+ <link rel="stylesheet" href="/css/main.min.b7ff8e747159f6c2d38e4b528e575d6ee1aabb6824ece4395a330d03f4271656.css" />
 
 
 
@@ -908,14 +908,14 @@ goods.html
 goods.scss
 </h3><p>路径：\assets\css<br>
 解说：加入触发式按钮</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/* 音乐播放器容器 */
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/* 音乐播放器容器 - 桌面端保持原样 */
 </span></span><span class="line"><span class="cl">.music-player-container {
 </span></span><span class="line"><span class="cl">  position: fixed;
-</span></span><span class="line"><span class="cl">  right: 30px;
-</span></span><span class="line"><span class="cl">  bottom: 120px;
+</span></span><span class="line"><span class="cl">  right: 30px;  /* 大屏保持原位置 */
+</span></span><span class="line"><span class="cl">  bottom: 120px; /* 大屏保持原位置 */
 </span></span><span class="line"><span class="cl">  z-index: 999;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  /* 触发按钮样式 - 调整描边和旋转速度 */
+</span></span><span class="line"><span class="cl">  /* 触发按钮样式 */
 </span></span><span class="line"><span class="cl">  .music-player-trigger {
 </span></span><span class="line"><span class="cl">    width: 50px;
 </span></span><span class="line"><span class="cl">    height: 50px;
@@ -927,13 +927,13 @@ goods.scss
 </span></span><span class="line"><span class="cl">    cursor: pointer;
 </span></span><span class="line"><span class="cl">    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 </span></span><span class="line"><span class="cl">    transition: all 0.3s ease;
-</span></span><span class="line"><span class="cl">    border: 3px solid white; /* 加粗描边(从2px改为3px) */
+</span></span><span class="line"><span class="cl">    border: 3px solid white; /* 保持加粗描边 */
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    svg {
 </span></span><span class="line"><span class="cl">      width: 24px;
 </span></span><span class="line"><span class="cl">      height: 24px;
 </span></span><span class="line"><span class="cl">      stroke: white;
-</span></span><span class="line"><span class="cl">      transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 旋转时间从0.6s延长到1s */
+</span></span><span class="line"><span class="cl">      transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 保持1秒旋转 */
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    &amp;:hover {
@@ -941,7 +941,6 @@ goods.scss
 </span></span><span class="line"><span class="cl">      transform: scale(1.05);
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    /* 360度旋转动画 */
 </span></span><span class="line"><span class="cl">    &amp;.rotate-360 svg {
 </span></span><span class="line"><span class="cl">      transform: rotate(360deg);
 </span></span><span class="line"><span class="cl">    }
@@ -972,15 +971,35 @@ goods.scss
 </span></span><span class="line"><span class="cl">  }
 </span></span><span class="line"><span class="cl">}
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/* 响应式调整 */
+</span></span><span class="line"><span class="cl">/* 仅调整移动端 */
 </span></span><span class="line"><span class="cl">@media (max-width: 768px) {
 </span></span><span class="line"><span class="cl">  .music-player-container {
-</span></span><span class="line"><span class="cl">    right: 15px;
-</span></span><span class="line"><span class="cl">    bottom: 100px;
+</span></span><span class="line"><span class="cl">    right: calc(30px - 2px); /* 向左移动半径25px */
+</span></span><span class="line"><span class="cl">    bottom: calc(120px - 20px); /* 向上移动直径50px */
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    .spotify-sidebar {
 </span></span><span class="line"><span class="cl">      width: 85vw;
-</span></span><span class="line"><span class="cl">      bottom: 140px;
+</span></span><span class="line"><span class="cl">      bottom: calc(220px - 50px); /* 同步上移50px */
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      &amp;.active {
+</span></span><span class="line"><span class="cl">        right: calc(30px - 25px); /* 与触发按钮对齐 */
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/* 超小屏幕设备（如竖屏手机） */
+</span></span><span class="line"><span class="cl">@media (max-width: 480px) {
+</span></span><span class="line"><span class="cl">  .music-player-container {
+</span></span><span class="line"><span class="cl">    right: calc(30px - 25px - 5px); /* 在半径基础上再左移5px */
+</span></span><span class="line"><span class="cl">    bottom: calc(120px - 50px - 0px); /* 在直径基础上再上移10px */
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    .spotify-sidebar {
+</span></span><span class="line"><span class="cl">      bottom: calc(220px - 50px - 10px);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      &amp;.active {
+</span></span><span class="line"><span class="cl">        right: calc(30px - 25px - 5px);
+</span></span><span class="line"><span class="cl">      }
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">  }
 </span></span><span class="line"><span class="cl">}
@@ -1304,7 +1323,7 @@ goods.scss
       <div>
         <span class="icon-brush"
           >&nbsp;
-            73.1k
+            73.2k
           </span
         >
         &nbsp;|&nbsp;
