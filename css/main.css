@@ -3527,3 +3527,16 @@ a, .main-nav-icon, .popup-btn-close {
     right: calc(30px - 25px - 5px);
   }
 }
+
+.goods-title {
+  white-space: normal !important;
+  line-height: 1.4;
+  display: inline-block;
+  /* 确保宽度自适应 */
+}
+
+.goods-title br {
+  display: block;
+  content: "";
+  margin-bottom: 0.3em;
+}
