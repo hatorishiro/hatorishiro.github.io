@@ -398,6 +398,7 @@
     </li>
     <li><a href="#制作宝箱页面">制作宝箱页面</a>
       <ul>
+        <li><a href="#goodshtml">goods.html</a></li>
         <li><a href="#goodsjson">goods.json</a></li>
         <li><a href="#goodsmd">goods.md</a></li>
         <li><a href="#goodsscss">goods.scss</a></li>
@@ -411,7 +412,7 @@
     </li>
     <li><a href="#在宝箱页面添加音乐播放器">在宝箱页面添加音乐播放器</a>
       <ul>
-        <li><a href="#goodshtml">goods.html</a></li>
+        <li><a href="#goodshtml-1">goods.html</a></li>
         <li><a href="#goodsscss-1">goods.scss</a></li>
       </ul>
     </li>
@@ -643,11 +644,487 @@
 这样基本上就能解决七七八八的疑难杂症了。</p>
 <p>另外，如果是关于博客的基础功能实现问题，可以直接去该主题的github上看。我在写这篇的时候发现代码块不起作用，查了一下<a href="https://github.com/D-Sketon/hugo-theme-reimu">github发布页</a>就发现了解答。</p>
 <p>这里直接记录一下有用的信息和代码，欢迎拿去使用。</p>
-<h3 id="goodsjson">
+<h3 id="goodshtml">
+<a class="header-anchor" href="#goodshtml"></a>
+goods.html
+</h3><p>路径：\layouts_default<br>
+解说：最重要的内容。整个网页的布局都是在这里决定的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">define</span> <span class="s2">&#34;main&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="o">$</span><span class="n">goods</span> <span class="p">:</span><span class="o">=</span> <span class="n">resources</span><span class="o">.</span><span class="n">Get</span> <span class="s2">&#34;goods/goods.json&#34;</span> <span class="o">|</span> <span class="n">transform</span><span class="o">.</span><span class="n">Unmarshal</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span> <span class="err">音乐播放器部分</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;music-player-container&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;music-player-trigger&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">&#34;toggleMusicPlayer()&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">svg</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="n">width</span><span class="o">=</span><span class="s2">&#34;24&#34;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&#34;24&#34;</span> <span class="n">viewBox</span><span class="o">=</span><span class="s2">&#34;0 0 24 24&#34;</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&#34;none&#34;</span> <span class="n">stroke</span><span class="o">=</span><span class="s2">&#34;white&#34;</span> <span class="n">stroke</span><span class="o">-</span><span class="n">width</span><span class="o">=</span><span class="s2">&#34;2&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">path</span> <span class="n">d</span><span class="o">=</span><span class="s2">&#34;M9 18V5l12-2v13&#34;</span><span class="o">&gt;&lt;/</span><span class="n">path</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">circle</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&#34;6&#34;</span> <span class="n">cy</span><span class="o">=</span><span class="s2">&#34;18&#34;</span> <span class="n">r</span><span class="o">=</span><span class="s2">&#34;3&#34;</span><span class="o">&gt;&lt;/</span><span class="n">circle</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">circle</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&#34;18&#34;</span> <span class="n">cy</span><span class="o">=</span><span class="s2">&#34;16&#34;</span> <span class="n">r</span><span class="o">=</span><span class="s2">&#34;3&#34;</span><span class="o">&gt;&lt;/</span><span class="n">circle</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">svg</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;spotify-sidebar&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">iframe</span>
+</span></span><span class="line"><span class="cl">      <span class="n">src</span><span class="o">=</span><span class="s2">&#34;https://open.spotify.com/embed/playlist/4JbiOYYS01yIimiyTUA3T7?utm_source=generator&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span><span class="o">=</span><span class="s2">&#34;100%&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">height</span><span class="o">=</span><span class="s2">&#34;352&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">frameborder</span><span class="o">=</span><span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">allowfullscreen</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">allow</span><span class="o">=</span><span class="s2">&#34;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">loading</span><span class="o">=</span><span class="s2">&#34;lazy&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">toggleMusicPlayer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">player</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;.spotify-sidebar&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">trigger</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;.music-player-trigger&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">player</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trigger</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s1">&#39;rotate-360&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">document</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">modeSwitch</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;mode-switch&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">currentMode</span> <span class="o">=</span> <span class="n">localStorage</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;light&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">currentMode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">modeSwitch</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">modeSwitch</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">localStorage</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">,</span> <span class="s1">&#39;dark&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">localStorage</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">,</span> <span class="s1">&#39;light&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post goods-page&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">h2</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post-title&#34;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;{{ .Permalink }}&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span><span class="n">Title</span> <span class="o">|</span> <span class="n">markdownify</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post-content goods&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="o">.</span><span class="n">Content</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">h2</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post-title&#34;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;{{ .Permalink }}&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span><span class="n">Title</span> <span class="o">|</span> <span class="n">markdownify</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">h2</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post-title&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">aos</span><span class="o">=</span><span class="s2">&#34;slide-up&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;{{ .Permalink }}&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span><span class="n">Title</span> <span class="o">|</span> <span class="n">markdownify</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">with</span> <span class="o">.</span><span class="n">Params</span><span class="o">.</span><span class="n">subtitle</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">h2</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;subtitle-wrap&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">aos</span><span class="o">=</span><span class="s2">&#34;slide-down&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;{{ &#34;&#34; | relURL }}&#34;</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;subtitle&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;post-content goods&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="err">标签筛选按钮</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-filter&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;全部&#34;</span><span class="o">&gt;</span><span class="err">全部</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;百合&#34;</span><span class="o">&gt;</span><span class="err">百合</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;推理&#34;</span><span class="o">&gt;</span><span class="err">推理</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;动画&#34;</span><span class="o">&gt;</span><span class="err">动画</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;漫画&#34;</span><span class="o">&gt;</span><span class="err">漫画</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;小说&#34;</span><span class="o">&gt;</span><span class="err">小说</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;游戏&#34;</span><span class="o">&gt;</span><span class="err">游戏</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;音乐&#34;</span><span class="o">&gt;</span><span class="err">音乐</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;游戏机&#34;</span><span class="o">&gt;</span><span class="err">游戏机</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;玩具&#34;</span><span class="o">&gt;</span><span class="err">玩具</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;filter-btn&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">filter</span><span class="o">=</span><span class="s2">&#34;毛茸茸&#34;</span><span class="o">&gt;</span><span class="err">毛茸茸</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="err">商品展示区</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;goods&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="nb">range</span> <span class="o">$</span><span class="n">goods</span><span class="o">.</span><span class="n">good</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-bankuai dark-mode-support img-hide&#34;</span> <span class="n">data</span><span class="o">-</span><span class="n">tags</span><span class="o">=</span><span class="s2">&#34;{{ delimit .tags &#34;</span><span class="p">,</span><span class="s2">&#34; }}&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-duiqi&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">&lt;</span><span class="n">img</span> <span class="n">loading</span><span class="o">=</span><span class="s2">&#34;lazy&#34;</span> <span class="n">decoding</span><span class="o">=</span><span class="s2">&#34;async&#34;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&#34;{{ .image }}&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">&#34;showImage(this)&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-jiage&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span><span class="n">jiage</span> <span class="o">|</span> <span class="n">replaceRE</span> <span class="s2">&#34;&lt;br&gt;&#34;</span> <span class="s2">&#34;&lt;br/&gt;&#34;</span> <span class="o">|</span> <span class="n">safeHTML</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-title&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;{{ .link }}&#34;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&#34;_blank&#34;</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&#34;noopener noreferrer&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span> <span class="o">.</span><span class="n">title</span> <span class="o">|</span> <span class="n">replaceRE</span> <span class="s2">&#34;&lt;br&gt;&#34;</span> <span class="s2">&#34;&lt;br/&gt;&#34;</span> <span class="o">|</span> <span class="n">safeHTML</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">          <span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;goods-note&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="o">.</span><span class="n">note</span> <span class="o">|</span> <span class="n">safeHTML</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span> <span class="err">多选筛选脚本</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">document</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">buttons</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;.filter-btn&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">cards</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;.goods-bankuai&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">selectedTags</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">buttons</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">button</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">button</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">filter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">tag</span> <span class="o">===</span> <span class="s2">&#34;全部&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">selectedTags</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">          <span class="n">buttons</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">b</span> <span class="o">=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&#34;selected&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">button</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s2">&#34;selected&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">selectedTags</span><span class="o">.</span><span class="n">includes</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selectedTags</span> <span class="o">=</span> <span class="n">selectedTags</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">t</span> <span class="o">=&gt;</span> <span class="n">t</span> <span class="o">!==</span> <span class="n">tag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selectedTags</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">filterCards</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">function</span> <span class="n">filterCards</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cards</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">cardTags</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">tags</span> <span class="err">?</span> <span class="n">card</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span> <span class="p">:</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">show</span> <span class="o">=</span> <span class="n">selectedTags</span><span class="o">.</span><span class="n">every</span><span class="p">(</span><span class="n">tag</span> <span class="o">=&gt;</span> <span class="n">cardTags</span><span class="o">.</span><span class="n">includes</span><span class="p">(</span><span class="n">tag</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">card</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="p">(</span><span class="n">show</span> <span class="o">||</span> <span class="n">selectedTags</span><span class="o">.</span><span class="n">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="err">?</span> <span class="s2">&#34;inline-block&#34;</span> <span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span> <span class="err">图片放大脚本</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">showImage</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">src</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s2">&#34;src&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">overlay</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&#34;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;justify-content:center;align-items:center;z-index:9999;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">newImg</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&#34;img&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newImg</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newImg</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&#34;max-width:90%;max-height:90%;box-shadow:0 0 15px #000;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">newImg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">overlay</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">overlay</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">隐藏“我的好物”标题</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">post</span><span class="o">-</span><span class="n">title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">jiage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">筛选按钮样式</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ffe4e4;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">padding</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">4</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cursor</span><span class="p">:</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">6</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">background</span><span class="o">-</span><span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">,</span> <span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="o">.</span><span class="n">selected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">黑暗模式：筛选按钮</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#525054;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="o">.</span><span class="n">selected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">黑暗模式：卡片背景</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#272b30;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">标题颜色</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">:</span><span class="ow">not</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff7c7c;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">=====================</span>
+</span></span><span class="line"><span class="cl">     <span class="err">通用筛选按钮样式</span>
+</span></span><span class="line"><span class="cl">     <span class="o">=====================</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">padding</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">4</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cursor</span><span class="p">:</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">6</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">background</span><span class="o">-</span><span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">,</span> <span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="o">.</span><span class="n">selected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">=====================</span>
+</span></span><span class="line"><span class="cl">     <span class="err">白天模式样式</span>
+</span></span><span class="line"><span class="cl">     <span class="o">=====================</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ffe4e4;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff7c7c;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">=====================</span>
+</span></span><span class="line"><span class="cl">     <span class="err">黑夜模式样式</span>
+</span></span><span class="line"><span class="cl">     <span class="o">=====================</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#525054;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#272b30;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff7c7c;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">=====================</span>
+</span></span><span class="line"><span class="cl">     <span class="err">商品价格字号</span>
+</span></span><span class="line"><span class="cl">     <span class="o">=====================</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">jiage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">=====================</span>
+</span></span><span class="line"><span class="cl">     <span class="err">隐藏标题</span>
+</span></span><span class="line"><span class="cl">     <span class="o">=====================</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">post</span><span class="o">-</span><span class="n">title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">========</span> <span class="err">通用样式</span> <span class="o">========</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="n">black</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">========</span> <span class="err">筛选按钮样式</span> <span class="o">========</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">padding</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">4</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cursor</span><span class="p">:</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">background</span><span class="o">-</span><span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">,</span> <span class="n">color</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="o">.</span><span class="n">selected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ff3385;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">========</span> <span class="err">白天模式</span> <span class="o">========</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#ffe4e4;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;light&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff7c7c;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">========</span> <span class="err">黑夜模式</span> <span class="o">========</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#525054;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff5252;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#272b30;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">title</span> <span class="n">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="c1">#ff7c7c;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="o">========</span> <span class="err">其他</span> <span class="o">========</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">jiage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">post</span><span class="o">-</span><span class="n">title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">卡片样式</span> <span class="o">-</span> <span class="err">仅保留黑色柔边投影</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">12</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">all</span> <span class="mf">0.3</span><span class="n">s</span> <span class="nb">ease</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="n">none</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span> <span class="o">/*</span> <span class="err">确保没有边框</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">筛选按钮样式</span> <span class="o">-</span> <span class="err">仅保留黑色柔边投影</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">8</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="n">none</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span> <span class="o">/*</span> <span class="err">确保没有边框</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transition</span><span class="p">:</span> <span class="n">all</span> <span class="mf">0.3</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">12</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">filter</span> <span class="n">button</span><span class="o">.</span><span class="n">selected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">12</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">黑暗模式调整</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">12</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">html</span><span class="o">.</span><span class="n">dark</span> <span class="o">.</span><span class="n">goods</span><span class="o">-</span><span class="n">bankuai</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">图片放大效果调整</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">showImage</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">src</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s2">&#34;src&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">overlay</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&#34;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;justify-content:center;align-items:center;z-index:9999;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">newImg</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&#34;img&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newImg</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newImg</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&#34;max-width:90%;max-height:90%;box-shadow:0 0 20px rgba(0,0,0,0.5);&#34;</span><span class="p">;</span> <span class="o">/*</span> <span class="err">调整为柔边投影</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">newImg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlay</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">overlay</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">overlay</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">title</span><span class="o">-</span><span class="n">font</span><span class="p">,</span> <span class="s1">&#39;Segoe UI&#39;</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">);</span> <span class="o">/*</span> <span class="err">替代</span> <span class="err">@</span><span class="n">include</span> <span class="n">logo</span><span class="o">-</span><span class="n">text</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">top</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#subtitle-wrap {</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">top</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">响应式调整（可选）</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">1200</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">      <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">768</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">      <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">14</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">480</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">      <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#subtitle {</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">title</span><span class="o">-</span><span class="n">font</span><span class="p">,</span> <span class="s1">&#39;Segoe UI&#39;</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">);</span> <span class="o">/*</span> <span class="err">或你主题中的</span> <span class="n">logo</span> <span class="err">字体</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="n">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#subtitle-wrap {</span>
+</span></span><span class="line"><span class="cl">    <span class="n">margin</span><span class="o">-</span><span class="n">top</span><span class="p">:</span> <span class="o">-</span><span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">/*</span> <span class="err">响应式可选</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">1200</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle { font-size: 15px; }</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">768</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle { font-size: 14px; }</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">480</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#subtitle { font-size: 13px; }</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span></code></pre></div><h3 id="goodsjson">
 <a class="header-anchor" href="#goodsjson"></a>
 goods.json
-</h3><p>路径：\assets\goods<br>
-解说：要展示的内容全部都放在这里面。<br>
+</h3><p>路径：\assets\goods\<br>
+解说：要展示的内容全部都放在这里面。 <br>
 注1：两个信息卡片之间的<code>},</code>要加逗号，最后一张卡片的结尾不需要加。<br>
 注2：两个标签之间记得加逗号</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
@@ -867,8 +1344,8 @@ single.html
 比较麻烦的是折腾了一下布局，放在上面太大了还影响副标题显示，放在侧边又感觉很碍事。<br>
 最后找到的折中方法就是点击按钮可以显示/隐藏，目前看起来还不错。</p>
 <p>这里分享一下代码：</p>
-<h3 id="goodshtml">
-<a class="header-anchor" href="#goodshtml"></a>
+<h3 id="goodshtml-1">
+<a class="header-anchor" href="#goodshtml-1"></a>
 goods.html
 </h3><p>路径：\layouts_default<br>
 解说：为指定网页添加音乐播放器，在开头部分加入以下代码。</p>
@@ -1323,7 +1800,7 @@ goods.scss
       <div>
         <span class="icon-brush"
           >&nbsp;
-            73.2k
+            75.1k
           </span
         >
         &nbsp;|&nbsp;
@@ -1331,7 +1808,7 @@ goods.scss
           
           
 
-          02:57
+          03:01
         </span>
       </div>
     
@@ -1383,6 +1860,7 @@ goods.scss
     </li>
     <li><a href="#制作宝箱页面">制作宝箱页面</a>
       <ul>
+        <li><a href="#goodshtml">goods.html</a></li>
         <li><a href="#goodsjson">goods.json</a></li>
         <li><a href="#goodsmd">goods.md</a></li>
         <li><a href="#goodsscss">goods.scss</a></li>
@@ -1396,7 +1874,7 @@ goods.scss
     </li>
     <li><a href="#在宝箱页面添加音乐播放器">在宝箱页面添加音乐播放器</a>
       <ul>
-        <li><a href="#goodshtml">goods.html</a></li>
+        <li><a href="#goodshtml-1">goods.html</a></li>
         <li><a href="#goodsscss-1">goods.scss</a></li>
       </ul>
     </li>
