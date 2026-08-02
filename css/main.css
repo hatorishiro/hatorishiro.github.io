@@ -231,6 +231,56 @@ body [data-aos="zoom-in"] {
   box-sizing: border-box !important;
 }
 
+/* 剧透/遮罩 (spoiler) 样式适配 */
+.spoiler {
+  /* 默认：纯文本遮罩（保持原生 inline 行内元素，精确对齐文字基线） */
+  display: inline !important;
+  background-color: #000 !important;
+  color: #000 !important;
+  border-radius: 2px;
+  padding: 0 2px;
+  transition: all 0.3s ease;
+  /* 仅当包含图片时：转为块级容器并应用灰色+模糊遮罩（无边框黑影） */
+}
+
+.spoiler:hover, .spoiler:active {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.spoiler:has(img) {
+  display: inline-block !important;
+  max-width: 100%;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  /* 裁切边缘溢出的模糊渐变 */
+  background-color: #b0b0b0 !important;
+  cursor: pointer;
+}
+
+.spoiler:has(img) img {
+  filter: blur(12px) !important;
+  opacity: 0.6 !important;
+  transform: scale(1.08) !important;
+  /* 微调放大，吃掉边缘暗影 */
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease !important;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.spoiler:has(img):hover, .spoiler:has(img):active {
+  background-color: transparent !important;
+}
+
+.spoiler:has(img):hover img, .spoiler:has(img):active img {
+  filter: blur(0) !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  /* 悬停时还原正常尺寸 */
+}
+
 @font-face {
   font-family: "iconfont";
   src: url("//at.alicdn.com/t/c/font_4552607_bq08450reo.woff2") format("woff2");
