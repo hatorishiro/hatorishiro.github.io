@@ -3,17 +3,43 @@
   <channel>
     <title>博客 on 世界的某个角落</title>
     <link>https://hatorishiro.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
-    <description>Recent content in 博客 on 世界的某个角落</description>
+    <description>Recent content from 世界的某个角落</description>
     <generator>Hugo</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    
+    <managingEditor>xxx@example.com (人毛)</managingEditor>
+    <webMaster>xxx@example.com (人毛)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
     <lastBuildDate>Fri, 16 May 2025 02:51:00 +0800</lastBuildDate>
-    <atom:link href="https://hatorishiro.github.io/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <atom:link href="https://hatorishiro.github.io/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
     <item>
       <title>博客学习笔记</title>
       <link>https://hatorishiro.github.io/post/%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Wed, 23 Apr 2025 19:29:00 +0800</pubDate>
+      <pubDate>Wed, 23 Apr 2025 19:29:00 &#43;0800</pubDate>
+      <author>xxx@example.com (人毛)</author>
       <guid>https://hatorishiro.github.io/post/%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;h2 id=&#34;开设博客&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%bc%80%e8%ae%be%e5%8d%9a%e5%ae%a2&#34;&gt;&lt;/a&gt;&#xA;开设博客&#xA;&lt;/h2&gt;&lt;p&gt;一开始应该是看到了莱特雷的这一篇&lt;a href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;&gt;【Hugo】Hugo + Github 免费部署自己的博客&lt;/a&gt;，突然萌发出了想做个人博客的念头。&lt;/p&gt;&#xA;&lt;p&gt;在搜索主题的时候，一眼就被D-Sketon的&lt;a href=&#34;https://github.com/D-Sketon/hugo-theme-reimu&#34;&gt;博丽灵梦主题&lt;/a&gt;迷住了。&lt;/p&gt;</description>
+      <description>
+        <![CDATA[<h1>博客学习笔记</h1><p>作者：人毛（xxx@example.com）</p>
+        
+          <h2 id="开设博客">
+<a class="header-anchor" href="#%e5%bc%80%e8%ae%be%e5%8d%9a%e5%ae%a2"></a>
+开设博客
+</h2><p>一开始应该是看到了莱特雷的这一篇<a href="https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/">【Hugo】Hugo + Github 免费部署自己的博客</a>，突然萌发出了想做个人博客的念头。</p>
+<p>在搜索主题的时候，一眼就被D-Sketon的<a href="https://github.com/D-Sketon/hugo-theme-reimu">博丽灵梦主题</a>迷住了。</p>
+        
+        <hr><p>本文2025-04-23首发于<a href='https://hatorishiro.github.io/'>世界的某个角落</a>，最后修改于2025-05-16</p>]]>
+      </description>
+      
     </item>
+    
   </channel>
 </rss>

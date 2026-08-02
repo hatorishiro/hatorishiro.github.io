@@ -144,6 +144,93 @@ body [data-aos="zoom-in"] {
   transition-property: all !important;
 }
 
+/* 彻底覆盖 Reimu 剧透遮罩：未展开时为纯黑不透明，隐藏内部文字 */
+.spoiler,
+.spoiler * {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 默认未悬停/未点击时：背景纯黑，文字与黑条同色（防止透光） */
+.spoiler:not(.active) {
+  background-color: #000000 !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  /* 遮挡内部所有子元素的文字颜色 */
+}
+
+.spoiler:not(.active) * {
+  color: #000000 !important;
+  background-color: transparent !important;
+}
+
+/* 鼠标悬停（Hover）或点击展开（Active）时恢复文字显示 */
+.spoiler:hover,
+.spoiler.active {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: inherit !important;
+}
+
+.spoiler:hover *,
+.spoiler.active * {
+  color: inherit !important;
+}
+
+/* 自定义剧透警告框 (Alert Box) */
+.spoiler-alert {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-left: 4px solid var(--red-1, #ff5252);
+  /* 继承主题主色调红/粉，如果无颜色则降级为亮红 */
+  background-color: var(--color-block, rgba(255, 82, 82, 0.08));
+  /* 半透明浅红背景，适配亮色/暗色模式 */
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text, #333);
+  /* 提示图标 */
+  /* 提示内容 */
+}
+
+.spoiler-alert .spoiler-alert-icon {
+  font-size: 1.25rem;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.spoiler-alert .spoiler-alert-content {
+  flex: 1;
+}
+
+.spoiler-alert .spoiler-alert-content strong {
+  color: var(--red-1, #ff5252);
+}
+
+/* 彻底解决 Waline 编辑器侧边栏 .wl-login-nick 用户名换行问题 */
+.wl-login-nick {
+  /* 强制单行显示，禁止换行 */
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow: visible !important;
+  /* 微调字号与字间距，确保 10 个字符能轻松放下 */
+  font-size: 0.78rem !important;
+  letter-spacing: -0.4px !important;
+  display: inline-block !important;
+}
+
+/* 放宽包含头像和昵称的左侧整个侧边栏容器 */
+.wl-user,
+.wl-header,
+.wl-panel .wl-user {
+  width: 80px !important;
+  min-width: 80px !important;
+  box-sizing: border-box !important;
+}
+
 @font-face {
   font-family: "iconfont";
   src: url("//at.alicdn.com/t/c/font_4552607_bq08450reo.woff2") format("woff2");

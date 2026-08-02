@@ -3,17 +3,40 @@
   <channel>
     <title>画画 on 世界的某个角落</title>
     <link>https://hatorishiro.github.io/tags/%E7%94%BB%E7%94%BB/</link>
-    <description>Recent content in 画画 on 世界的某个角落</description>
+    <description>Recent content from 世界的某个角落</description>
     <generator>Hugo</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    
+    <managingEditor>xxx@example.com (人毛)</managingEditor>
+    <webMaster>xxx@example.com (人毛)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
     <lastBuildDate>Mon, 07 Oct 2013 16:01:00 +0800</lastBuildDate>
-    <atom:link href="https://hatorishiro.github.io/tags/%E7%94%BB%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <atom:link href="https://hatorishiro.github.io/tags/%E7%94%BB%E7%94%BB/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
     <item>
       <title>麻衣</title>
       <link>https://hatorishiro.github.io/post/%E9%BA%BB%E8%A1%A3/</link>
-      <pubDate>Mon, 07 Oct 2013 16:01:00 +0800</pubDate>
+      <pubDate>Mon, 07 Oct 2013 16:01:00 &#43;0800</pubDate>
+      <author>xxx@example.com (人毛)</author>
       <guid>https://hatorishiro.github.io/post/%E9%BA%BB%E8%A1%A3/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://hatorishiro.github.io/post/%E5%9B%BE%E7%89%87/%E9%BA%BB%E8%A1%A3/%E9%BA%BB%E8%A1%A3.jpg&#34; alt=&#34;&#34;&gt;&#xA;自己画的一张麻衣，还是有些地方不满意不过算了啦(╯‵□′)╯︵┻━┻&lt;/p&gt;</description>
+      <description>
+        <![CDATA[<h1>麻衣</h1><p>作者：人毛（xxx@example.com）</p>
+        
+          <p><img src="/post/%E5%9B%BE%E7%89%87/%E9%BA%BB%E8%A1%A3/%E9%BA%BB%E8%A1%A3.jpg" alt="">
+自己画的一张麻衣，还是有些地方不满意不过算了啦(╯‵□′)╯︵┻━┻</p>
+        
+        <hr><p>本文2013-10-07首发于<a href='https://hatorishiro.github.io/'>世界的某个角落</a>，最后修改于2013-10-07</p>]]>
+      </description>
+      
     </item>
+    
   </channel>
 </rss>

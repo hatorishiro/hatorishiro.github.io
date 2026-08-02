@@ -3,10 +3,21 @@
   <channel>
     <title>世界的某个角落</title>
     <link>https://hatorishiro.github.io/archives/</link>
-    <description>Recent content on 世界的某个角落</description>
+    <description>Recent content from 世界的某个角落</description>
     <generator>Hugo</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    
+    <managingEditor>xxx@example.com (人毛)</managingEditor>
+    <webMaster>xxx@example.com (人毛)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://hatorishiro.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <atom:link href="https://hatorishiro.github.io/archives/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
   </channel>
 </rss>
