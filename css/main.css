@@ -3677,3 +3677,219 @@ a, .main-nav-icon, .popup-btn-close {
   content: "";
   margin-bottom: 0.3em;
 }
+
+/* 时光胶囊 (Capsule) 专用样式 */
+.capsule-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.capsule-wrapper .capsule-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.capsule-wrapper .capsule-right {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 1. 项目卡片 */
+.capsule-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  gap: 16px;
+  align-items: flex-start;
+  /* 文字星级 */
+}
+
+.capsule-card .capsule-cover-wrap {
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.capsule-card .capsule-cover {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.capsule-card .capsule-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.capsule-card .capsule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #888;
+}
+
+.capsule-card .capsule-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff6688;
+  /* reimu 经典主色 */
+  margin: 4px 0 8px 0;
+}
+
+.capsule-card .capsule-summary {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.capsule-card .rating-stars {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #777777;
+}
+
+.capsule-card .rating-stars .star-empty {
+  color: #ffffff;
+  -webkit-text-stroke: 1px #777777;
+  display: inline-block;
+}
+
+/* 2 & 3. 右侧挂件 */
+.capsule-widget {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.capsule-widget .capsule-widget-title {
+  background: #ffcdd2;
+  color: #e53935;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.capsule-widget .capsule-timeline {
+  list-style: none;
+  padding: 15px 20px;
+  margin: 0;
+}
+
+.capsule-widget .capsule-timeline li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.capsule-widget .capsule-timeline li::before {
+  content: '◎';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ff6688;
+}
+
+.capsule-widget .capsule-timeline li .action-tag {
+  color: #666;
+  margin-right: 6px;
+}
+
+.capsule-widget .capsule-timeline li .item-title {
+  color: #e53935;
+  font-weight: bold;
+}
+
+.capsule-widget .capsule-archive-year {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+.capsule-widget .capsule-archive-list {
+  list-style: none;
+  padding-left: 10px;
+  border-left: 2px solid #ff6688;
+  margin: 0;
+}
+
+.capsule-widget .capsule-archive-list li {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.capsule-widget .capsule-archive-list li .month {
+  color: #ff6688;
+  font-weight: bold;
+}
+
+.capsule-widget .capsule-archive-list li .title {
+  color: #e53935;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .capsule-wrapper {
+    flex-direction: column;
+  }
+  .capsule-right {
+    width: 100%;
+  }
+  .capsule-card {
+    flex-direction: column;
+  }
+  .capsule-cover-wrap {
+    width: 100%;
+  }
+}
+
+.capsule-wrapper {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.capsule-wrapper .capsule-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.capsule-wrapper .capsule-right {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .capsule-wrapper {
+    flex-direction: column;
+  }
+  .capsule-wrapper .capsule-right {
+    width: 100%;
+  }
+}
