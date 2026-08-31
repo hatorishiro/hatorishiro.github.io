@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hatorishiro.github.io/capsule/%E5%B0%96%E5%B8%BD%E5%AD%90%E7%9A%84%E9%AD%94%E6%B3%95%E5%B7%A5%E6%88%BF/</loc>
-    <lastmod>2026-08-29T00:00:00+00:00</lastmod>
+    <loc>https://hatorishiro.github.io/capsule/%E8%AE%B0%E5%BF%86%E7%AE%A1%E7%90%86%E5%B1%80/</loc>
+    <lastmod>2026-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hatorishiro.github.io/</loc>
+    <lastmod>2026-08-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hatorishiro.github.io/capsule/%E5%B0%96%E5%B8%BD%E5%AD%90%E7%9A%84%E9%AD%94%E6%B3%95%E5%B7%A5%E6%88%BF/</loc>
     <lastmod>2026-08-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hatorishiro.github.io/capsule/disobedience/</loc>
