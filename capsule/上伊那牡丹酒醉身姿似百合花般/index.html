@@ -1392,7 +1392,7 @@
 #rating-tooltip {
   position: absolute !important;
   bottom: calc(100% + 8px) !important;
-  right: -24px !important;  
+  right: -24px !important;
   width: 270px !important;
   background: var(--tooltip-bg) !important;
   color: var(--tooltip-color) !important;
@@ -1413,7 +1413,7 @@
   content: '' !important;
   position: absolute !important;
   top: 100% !important;
-  right: 32px !important;  
+  right: 32px !important;
   border-width: 5px !important;
   border-style: solid !important;
   border-color: var(--tooltip-bg) transparent transparent transparent !important;
@@ -1522,6 +1522,15 @@
 }
 .capsule-play-btn.bilibili:hover {
   background: #00aeec !important;
+  color: #fff !important;
+}
+
+.capsule-play-btn.youtube {
+  border: 1px solid #ff0000 !important;
+  color: #ff0000 !important;
+}
+.capsule-play-btn.youtube:hover {
+  background: #ff0000 !important;
   color: #fff !important;
 }
 
@@ -1651,59 +1660,72 @@
   text-align: left !important;
 }
 
+ 
 .capsule-widget .capsule-timeline {
   list-style: none !important;
-  padding: 0 0 4px 6px !important;
+  padding: 0 !important;
   margin: 0 !important;
   position: relative !important;
-}
-
-.capsule-widget .capsule-timeline::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 6px !important;
-  bottom: 8px !important;
-  left: 6px !important;
-  width: 2px !important;
-  background: var(--timeline-line) !important;
-  z-index: 1 !important;
 }
 
 .capsule-widget .capsule-timeline li {
   position: relative !important;
   padding-left: 20px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 12px !important;
   font-size: 13px !important;
-  z-index: 2 !important;
+  line-height: 1.4 !important;
   cursor: pointer !important;
+  display: flex !important;
+  align-items: flex-start !important;
 }
 
 .capsule-widget .capsule-timeline li:last-child {
   margin-bottom: 0 !important;
 }
 
+ 
 .capsule-widget .capsule-timeline li::before {
   content: '' !important;
   position: absolute !important;
-  left: -2px !important;
+  left: 3px !important;
   top: 5px !important;
   background: var(--capsule-title-color) !important;
   border-radius: 50% !important;
   width: 6px !important;
   height: 6px !important;
   box-shadow: 0 0 0 3px var(--widget-bg) !important;
+  z-index: 3 !important;
+}
+
+ 
+.capsule-widget .capsule-timeline li:not(:last-child)::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 5.5px !important;
+  top: 11px !important;
+  bottom: -12px !important;
+  width: 2px !important;
+  background: var(--timeline-line) !important;
+  z-index: 1 !important;
 }
 
 .capsule-widget .capsule-timeline .action-tag {
   color: var(--capsule-text-meta) !important;
   margin-right: 6px !important;
+  flex-shrink: 0 !important;
+  width: 32px !important;
+  display: inline-block !important;
 }
 
 .capsule-widget .capsule-timeline .item-title {
   color: var(--capsule-title-color) !important;
   font-weight: bold !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  word-break: break-all !important;
 }
 
+ 
 .capsule-archive-list {
   list-style: none !important;
   padding-left: 0 !important;
@@ -1764,6 +1786,7 @@
   line-height: 1.4 !important;
   flex: 1 !important;
   min-width: 0 !important;
+  word-break: break-all !important;
   transition: color 0.25s ease !important;
 }
 
@@ -1867,10 +1890,10 @@
   <div class="capsule-left" id="capsule-card-list">
     
       
-      <div class="capsule-card" id="capsule-item-b27fc9032b2e0955452d91a502c24c51" data-category="anime">
+      <div class="capsule-card" id="capsule-item-9373b4454751dec556ba206ead83e57b" data-category="book">
         
         <div class="capsule-cover-wrap">
-          <img class="capsule-cover" src="/capsule/%e8%ae%b0%e5%bf%86%e7%ae%a1%e7%90%86%e5%b1%80.jpg" alt="记忆管理局" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/记忆管理局.jpg')">
+          <img class="capsule-cover" src="/capsule/%e6%82%96%e8%ae%ba13.jpg" alt="悖论13" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/悖论13.jpg')">
         </div>
         
 
@@ -1880,9 +1903,10 @@
               
 
               <span class="capsule-meta-item">
-                <i class="icon-calendar"></i> 2026-08-31
+                <i class="icon-calendar"></i> 2026-09-18
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -1892,7 +1916,7 @@
                     
                   
                     
-                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      <svg class="star-svg empty" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     
                   
                     
@@ -1934,6 +1958,391 @@
                   </div>
                 </div>
               </div>
+              
+            </div>
+
+            <div class="capsule-title">悖论13</div>
+
+            
+            
+              
+            
+
+            <div class="capsule-summary-container">
+              <div class="capsule-summary"></div>
+              <div class="capsule-full-source"><p>末日生存故事，还是挺有趣的。<br> 讲的是3月13日13点13秒过后，登场角色们突然发现几乎整个世界的人都消失了，幸存者只有他们13人。后面讲的就是如何应对地震海啸，在山崩地裂的世界里艰难求生的历险。<br> 本身这个题材是很对我胃口的。要是写到200页就收住的话这个故事真的很好，有人性的丑恶也有懵懂的爱情。可惜后面作者开始发癫了，<span class="spoiler">用大幅篇章开始讲什么强奸和要求女人们跟多个男人配种这种能让我把隔夜饭都吐出来的剧情。</span>
+
+
+
+
+
+
+
+  
+ <link rel="stylesheet" href="/css/spoiler.min.2114e8f1feca8cfcd2c014ff74616d2253d3e314768484e18755f03c496fbb05.css" />
+导致我看完后只想让东野圭吾赔我看这本书的精神损失费。<br></p>
+</div>
+            </div>
+          </div>
+
+          <div class="capsule-footer-action">
+            <div class="capsule-actions-left">
+              
+
+              
+
+              
+            </div>
+
+            <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
+          </div>
+        </div>
+      </div>
+      
+    
+      
+      <div class="capsule-card" id="capsule-item-785174f1d21310593836878bc63038e7" data-category="song">
+        
+        <div class="capsule-cover-wrap">
+          <img class="capsule-cover" src="/capsule/PrayerBlue.jpg" alt="Prayer Blue" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/PrayerBlue.jpg')">
+        </div>
+        
+
+        <div class="capsule-content">
+          <div>
+            <div class="capsule-header">
+              
+
+              <span class="capsule-meta-item">
+                <i class="icon-calendar"></i> 2026-09-15
+              </span>
+
+              
+              <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
+                <div class="rating-stars">
+                  
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                </div>
+                <div id="rating-tooltip">
+                  <div class="tooltip-title">评分为5分制：</div>
+                  <div class="tooltip-grid">
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★</span>
+                      <span class="tooltip-desc">很差，存在影响体验的大问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★</span>
+                      <span class="tooltip-desc">还行，问题很多。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★</span>
+                      <span class="tooltip-desc">不错，几乎没什么问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★</span>
+                      <span class="tooltip-desc">优秀，非常有趣。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★★</span>
+                      <span class="tooltip-desc">神作，能给我带来震撼或者感动。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="capsule-title">Prayer Blue</div>
+
+            
+            
+              
+            
+
+            <div class="capsule-summary-container">
+              <div class="capsule-summary"></div>
+              <div class="capsule-full-source"><p>音乐社团FELT出品的东方同人音乐。小时候听了无数次。<br> 当时很喜欢玩百战天虫，用这首歌当战斗背景音乐，同时也被它打下了记忆烙印。<br> 现在听高潮部分眼前还能清晰地浮现出蓄力打火箭炮的画面。 ​​​</p>
+</div>
+            </div>
+          </div>
+
+          <div class="capsule-footer-action">
+            <div class="capsule-actions-left">
+              
+
+              
+
+              
+              <button class="capsule-play-btn youtube" onclick="openMediaFloatPlayer('youtube', 'https:\/\/www.youtube.com\/embed\/DeinxJ6T920?si=1eGQIwqBJ2C6vU_i', 'Prayer Blue')">
+                ▶ YouTube
+              </button>
+              
+            </div>
+
+            <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
+          </div>
+        </div>
+      </div>
+      
+    
+      
+      <div class="capsule-card" id="capsule-item-d475ec960a15918556e1adc017668caf" data-category="game">
+        
+        <div class="capsule-cover-wrap">
+          <img class="capsule-cover" src="/capsule/%e6%94%be%e6%9d%be%e6%97%b6%e5%85%89%e4%b8%8e%e4%bd%a0%e5%85%b1%e4%ba%abLo-Fi%e6%95%85%e4%ba%8b.jpg" alt="放松时光： &lt;br&gt;与你共享Lo-Fi故事" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/放松时光与你共享Lo-Fi故事.jpg')">
+        </div>
+        
+
+        <div class="capsule-content">
+          <div>
+            <div class="capsule-header">
+              
+              <span class="capsule-meta-item">
+                <i class="icon-clock"></i> 109小时
+              </span>
+              
+
+              <span class="capsule-meta-item">
+                <i class="icon-calendar"></i> 2026-09-15
+              </span>
+
+              
+              <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
+                <div class="rating-stars">
+                  
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg empty" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                </div>
+                <div id="rating-tooltip">
+                  <div class="tooltip-title">评分为5分制：</div>
+                  <div class="tooltip-grid">
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★</span>
+                      <span class="tooltip-desc">很差，存在影响体验的大问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★</span>
+                      <span class="tooltip-desc">还行，问题很多。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★</span>
+                      <span class="tooltip-desc">不错，几乎没什么问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★</span>
+                      <span class="tooltip-desc">优秀，非常有趣。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★★</span>
+                      <span class="tooltip-desc">神作，能给我带来震撼或者感动。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="capsule-title">放松时光：  与你共享Lo-Fi故事</div>
+
+            
+            
+              
+            
+
+            <div class="capsule-summary-container">
+              <div class="capsule-summary"></div>
+              <div class="capsule-full-source"><p>专注软件，有番茄钟，有舒缓的音乐，也有一位美少女。<br> 无可挑剔的优秀作品，气氛和美术都做得很好。<br> 而且还有自己的剧情……<span class="spoiler">我也是今天才知道这游戏原来有大结局。</span>
+
+
+
+
+
+
+
+  
+ <link rel="stylesheet" href="/css/spoiler.min.2114e8f1feca8cfcd2c014ff74616d2253d3e314768484e18755f03c496fbb05.css" />
+</p>
+</div>
+            </div>
+          </div>
+
+          <div class="capsule-footer-action">
+            <div class="capsule-actions-left">
+              
+
+              
+
+              
+            </div>
+
+            <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
+          </div>
+        </div>
+      </div>
+      
+    
+      
+      <div class="capsule-card" id="capsule-item-382a7de3121ad8fb27203d0ef8ca3cff" data-category="song">
+        
+        <div class="capsule-cover-wrap">
+          <img class="capsule-cover" src="/capsule/%e5%b0%8f%e8%af%b4%e5%a4%8f%e4%b8%8e%e7%bd%9a.jpg" alt="小説　夏と罰（上・下）" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/小说夏与罚.jpg')">
+        </div>
+        
+
+        <div class="capsule-content">
+          <div>
+            <div class="capsule-header">
+              
+
+              <span class="capsule-meta-item">
+                <i class="icon-calendar"></i> 2026-09-05
+              </span>
+
+              
+              <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
+                <div class="rating-stars">
+                  
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg filled" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                    
+                      <svg class="star-svg empty" viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    
+                  
+                </div>
+                <div id="rating-tooltip">
+                  <div class="tooltip-title">评分为5分制：</div>
+                  <div class="tooltip-grid">
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★</span>
+                      <span class="tooltip-desc">很差，存在影响体验的大问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★</span>
+                      <span class="tooltip-desc">还行，问题很多。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★</span>
+                      <span class="tooltip-desc">不错，几乎没什么问题。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★</span>
+                      <span class="tooltip-desc">优秀，非常有趣。</span>
+                    </div>
+                    <div class="tooltip-row">
+                      <span class="tooltip-stars">★★★★★</span>
+                      <span class="tooltip-desc">神作，能给我带来震撼或者感动。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="capsule-title">小説　夏と罰（上・下）</div>
+
+            
+            
+              
+            
+
+            <div class="capsule-summary-container">
+              <div class="capsule-summary"></div>
+              <div class="capsule-full-source"><p>量产推荐的藤都子 × 薇奥拉 代餐曲。<br> 原曲就很神了，没想到上下两首歌合起来居然会产生这么强的情感旋涡。<br> “现在开始就要把你推入深渊”<br> “从很久以前便开始计划着要背叛了”<br> “我想在那知道了全部真相后的你的脸上 看见那过于湛蓝的天空 ”</p>
+</div>
+            </div>
+          </div>
+
+          <div class="capsule-footer-action">
+            <div class="capsule-actions-left">
+              
+
+              
+
+              
+              <button class="capsule-play-btn youtube" onclick="openMediaFloatPlayer('youtube', 'https:\/\/www.youtube.com\/embed\/J1v-7ylimrY?si=X1vFKhz_T1szE5ii', '小説　夏と罰（上・下）')">
+                ▶ YouTube
+              </button>
+              
+            </div>
+
+            <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
+          </div>
+        </div>
+      </div>
+      
+    
+      
+      <div class="capsule-card" id="capsule-item-b27fc9032b2e0955452d91a502c24c51" data-category="anime">
+        
+        <div class="capsule-cover-wrap">
+          <img class="capsule-cover" src="/capsule/%e8%ae%b0%e5%bf%86%e7%ae%a1%e7%90%86%e5%b1%80.jpg" alt="记忆管理局" onload="checkCapsuleCoverRatio(this)" onclick="openCapsuleLightbox('\/capsule\/记忆管理局.jpg')">
+        </div>
+        
+
+        <div class="capsule-content">
+          <div>
+            <div class="capsule-header">
+              
+
+              <span class="capsule-meta-item">
+                <i class="icon-calendar"></i> 2026-08-31
+              </span>
+
+              
             </div>
 
             <div class="capsule-title">记忆管理局</div>
@@ -1952,6 +2361,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -1980,6 +2391,7 @@
                 <i class="icon-calendar"></i> 2026-08-29
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2031,6 +2443,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">尖帽子的魔法工房</div>
@@ -2062,6 +2475,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -2087,6 +2502,7 @@
                 <i class="icon-calendar"></i> 2026-08-28
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2138,6 +2554,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">disobedience</div>
@@ -2166,6 +2583,8 @@
               <button class="capsule-play-btn bilibili" onclick="openMediaFloatPlayer('bilibili', '\/\/player.bilibili.com\/player.html?isOutside=true\u0026aid=117125620500366\u0026bvid=BV1HtbZ63EK8\u0026cid=41083932317\u0026p=1', 'disobedience')">
                 ▶ Bilibili
               </button>
+              
+
               
             </div>
 
@@ -2196,6 +2615,7 @@
                 <i class="icon-calendar"></i> 2026-08-25
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2247,6 +2667,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">数码宝贝物语 时空异客</div>
@@ -2298,6 +2719,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -2323,6 +2746,7 @@
                 <i class="icon-calendar"></i> 2026-08-13
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2374,6 +2798,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">佐贺的超级阿嬷 精华版</div>
@@ -2405,6 +2830,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -2430,6 +2857,7 @@
                 <i class="icon-calendar"></i> 2026-08-11
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2481,6 +2909,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">李献计历险记</div>
@@ -2499,6 +2928,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -2527,6 +2958,7 @@
                 <i class="icon-calendar"></i> 2026-08-10
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2578,6 +3010,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">伽利略探案事件簿2</div>
@@ -2596,6 +3029,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -2624,6 +3059,7 @@
                 <i class="icon-calendar"></i> 2026-08-09
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2675,6 +3111,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">Between Us</div>
@@ -2695,6 +3132,12 @@
             <div class="capsule-actions-left">
               
 
+              
+
+              
+              <button class="capsule-play-btn youtube" onclick="openMediaFloatPlayer('youtube', 'https:\/\/www.youtube.com\/embed\/OTUs829yy54?si=Dz-7zvuNEN8-KPXh', 'Between Us')">
+                ▶ YouTube
+              </button>
               
             </div>
 
@@ -2721,6 +3164,7 @@
                 <i class="icon-calendar"></i> 2026-07-31
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2772,6 +3216,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">伽利略探案事件簿 1</div>
@@ -2803,6 +3248,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -2828,6 +3275,7 @@
                 <i class="icon-calendar"></i> 2026-07-18
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2879,6 +3327,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">静降想</div>
@@ -2907,6 +3356,8 @@
               <button class="capsule-play-btn bilibili" onclick="openMediaFloatPlayer('bilibili', '\/\/player.bilibili.com\/player.html?isOutside=true\u0026aid=115671874739117\u0026bvid=BV1gw2WBAE2q\u0026cid=34548025771\u0026p=1', '静降想')">
                 ▶ Bilibili
               </button>
+              
+
               
             </div>
 
@@ -2937,6 +3388,7 @@
                 <i class="icon-calendar"></i> 2026-07-13
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -2988,6 +3440,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">艾恩葛朗特 回荡新声</div>
@@ -3006,6 +3459,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3034,6 +3489,7 @@
                 <i class="icon-calendar"></i> 2026-07-10
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3085,6 +3541,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">学校一可愛い彼女は、私の前でだけ様子がおかしい</div>
@@ -3103,6 +3560,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3131,6 +3590,7 @@
                 <i class="icon-calendar"></i> 2026-06-27
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3182,6 +3642,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">上伊那牡丹，酒醉身姿似百合花般</div>
@@ -3223,6 +3684,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -3252,6 +3715,7 @@
                 <i class="icon-calendar"></i> 2026-06-22
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3303,6 +3767,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">新创世纪</div>
@@ -3321,6 +3786,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3353,6 +3820,7 @@
                 <i class="icon-calendar"></i> 2026-06-01
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3404,6 +3872,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">球比伦战记</div>
@@ -3432,6 +3901,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3464,6 +3935,7 @@
                 <i class="icon-calendar"></i> 2026-05-30
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3515,6 +3987,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">洛克人世界3</div>
@@ -3546,6 +4019,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -3571,6 +4046,7 @@
                 <i class="icon-calendar"></i> 2026-05-24
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3622,6 +4098,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">街 ~命运的交叉点~</div>
@@ -3653,6 +4130,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -3678,6 +4157,7 @@
                 <i class="icon-calendar"></i> 2026-05-24
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3729,6 +4209,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">洛克人洛克人</div>
@@ -3747,6 +4228,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3779,6 +4262,7 @@
                 <i class="icon-calendar"></i> 2026-05-24
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3830,6 +4314,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">洛克人世界2</div>
@@ -3858,6 +4343,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -3890,6 +4377,7 @@
                 <i class="icon-calendar"></i> 2026-05-22
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -3941,6 +4429,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">洛克人世界1</div>
@@ -3972,6 +4461,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -3997,6 +4488,7 @@
                 <i class="icon-calendar"></i> 2026-05-20
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4048,6 +4540,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">迷子の寄り道</div>
@@ -4066,6 +4559,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4094,6 +4589,7 @@
                 <i class="icon-calendar"></i> 2026-05-15
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4145,6 +4641,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">给阿嬷的情书</div>
@@ -4163,6 +4660,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4191,6 +4690,7 @@
                 <i class="icon-calendar"></i> 2026-05-14
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4242,6 +4742,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">和丈夫离婚后女儿开始亲近我</div>
@@ -4273,6 +4774,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -4298,6 +4801,7 @@
                 <i class="icon-calendar"></i> 2026-05-11
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4349,6 +4853,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">雷顿教授与死镜之馆</div>
@@ -4380,6 +4885,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -4405,6 +4912,7 @@
                 <i class="icon-calendar"></i> 2026-05-03
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4456,6 +4964,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">LOST in BLUE Mobile  まりな＆りく編</div>
@@ -4484,6 +4993,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4516,6 +5027,7 @@
                 <i class="icon-calendar"></i> 2026-04-14
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4567,6 +5079,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">龙珠大冒险</div>
@@ -4595,6 +5108,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4627,6 +5142,7 @@
                 <i class="icon-calendar"></i> 2026-04-05
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4678,6 +5194,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">Jack Jeanne</div>
@@ -4696,6 +5213,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4724,6 +5243,7 @@
                 <i class="icon-calendar"></i> 2026-04-03
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4775,6 +5295,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">超级马力欧银河大电影</div>
@@ -4803,6 +5324,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -4835,6 +5358,7 @@
                 <i class="icon-calendar"></i> 2026-03-16
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4886,6 +5410,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">生化危机安魂曲</div>
@@ -4917,6 +5442,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -4942,6 +5469,7 @@
                 <i class="icon-calendar"></i> 2026-02-22
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -4993,6 +5521,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">呼唤少女</div>
@@ -5028,6 +5557,8 @@
                 ▶ Bilibili
               </button>
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -5057,6 +5588,7 @@
                 <i class="icon-calendar"></i> 2026-02-19
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5108,6 +5640,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">灵视异闻 FILE23  本所七大不可思议</div>
@@ -5126,6 +5659,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -5154,6 +5689,7 @@
                 <i class="icon-calendar"></i> 2026-02-15
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5205,6 +5741,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">睡觉的笨蛋</div>
@@ -5296,6 +5833,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -5321,6 +5860,7 @@
                 <i class="icon-calendar"></i> 2026-02-10
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5372,6 +5912,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">羊驼进化</div>
@@ -5413,6 +5954,8 @@
               
 
               
+
+              
             </div>
 
             <button class="capsule-expand-btn" onclick="toggleCapsuleSummary(this)">(展开全文)</button>
@@ -5442,6 +5985,7 @@
                 <i class="icon-calendar"></i> 2026-01-06
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5493,6 +6037,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">与你流落荒岛</div>
@@ -5511,6 +6056,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -5539,6 +6086,7 @@
                 <i class="icon-calendar"></i> 2026-01-03
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5590,6 +6138,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">纪念碑谷</div>
@@ -5608,6 +6157,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -5636,6 +6187,7 @@
                 <i class="icon-calendar"></i> 2026-01-01
               </span>
 
+              
               <div class="rating-container" onmouseenter="showRatingTooltip(this)" onmouseleave="hideRatingTooltip()">
                 <div class="rating-stars">
                   
@@ -5687,6 +6239,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <div class="capsule-title">我们不可能成为恋人！绝对不行。 (※似乎可行？) </div>
@@ -5715,6 +6268,8 @@
 
           <div class="capsule-footer-action">
             <div class="capsule-actions-left">
+              
+
               
 
               
@@ -5751,32 +6306,32 @@
         
         
         
-        <li onclick="scrollToCapsule('capsule-item-b27fc9032b2e0955452d91a502c24c51')">
+        <li onclick="scrollToCapsule('capsule-item-9373b4454751dec556ba206ead83e57b')">
           <span class="action-tag">
-            看过
+            读过
             
           </span>
-          <span class="item-title">记忆管理局</span>
+          <span class="item-title">悖论13</span>
         </li>
         
         
         
-        <li onclick="scrollToCapsule('capsule-item-6de4eedf2a6d661dd40abd15b9ac91a9')">
-          <span class="action-tag">
-            看过
-            
-          </span>
-          <span class="item-title">尖帽子的魔法工房</span>
-        </li>
-        
-        
-        
-        <li onclick="scrollToCapsule('capsule-item-b38461025e2c6ccfa4950b76c9b307d9')">
+        <li onclick="scrollToCapsule('capsule-item-785174f1d21310593836878bc63038e7')">
           <span class="action-tag">
             听过
             
           </span>
-          <span class="item-title">disobedience</span>
+          <span class="item-title">Prayer Blue</span>
+        </li>
+        
+        
+        
+        <li onclick="scrollToCapsule('capsule-item-d475ec960a15918556e1adc017668caf')">
+          <span class="action-tag">
+            玩过
+            
+          </span>
+          <span class="item-title">放松时光： <br>与你共享Lo-Fi故事</span>
         </li>
         
         
@@ -5794,6 +6349,34 @@
             <a href="#" class="archive-year" style="text-decoration: none;">2026</a>
           </div>
           <ul class="capsule-archive-list">
+            
+              
+              <li onclick="scrollToCapsule('capsule-item-9373b4454751dec556ba206ead83e57b')" data-target="capsule-item-9373b4454751dec556ba206ead83e57b">
+                <span class="month">9月18日</span>
+                <span class="title">悖论13</span>
+              </li>
+              
+            
+              
+              <li onclick="scrollToCapsule('capsule-item-d475ec960a15918556e1adc017668caf')" data-target="capsule-item-d475ec960a15918556e1adc017668caf">
+                <span class="month">9月15日</span>
+                <span class="title">放松时光： <br>与你共享Lo-Fi故事</span>
+              </li>
+              
+            
+              
+              <li onclick="scrollToCapsule('capsule-item-785174f1d21310593836878bc63038e7')" data-target="capsule-item-785174f1d21310593836878bc63038e7">
+                <span class="month">9月15日</span>
+                <span class="title">Prayer Blue</span>
+              </li>
+              
+            
+              
+              <li onclick="scrollToCapsule('capsule-item-382a7de3121ad8fb27203d0ef8ca3cff')" data-target="capsule-item-382a7de3121ad8fb27203d0ef8ca3cff">
+                <span class="month">9月5日</span>
+                <span class="title">小説　夏と罰（上・下）</span>
+              </li>
+              
             
               
               <li onclick="scrollToCapsule('capsule-item-b27fc9032b2e0955452d91a502c24c51')" data-target="capsule-item-b27fc9032b2e0955452d91a502c24c51">
@@ -6240,35 +6823,47 @@ function openMediaFloatPlayer(type, url, title) {
   var titleSpan = document.getElementById('media-player-title');
 
   titleSpan.textContent = title;
+  var embedHTML = '';
 
-  var iframeHtml = '';
   if (type === 'spotify') {
-    iframeHtml = '<iframe data-testid="embed-iframe" style="border-radius:0 0 14px 14px; display:block; height:152px;" src="' + url + '" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
-  } else if (type === 'bilibili') {
-    var finalBilibiliUrl = url;
-    if (finalBilibiliUrl.indexOf('autoplay=') === -1) {
-      var sep = finalBilibiliUrl.indexOf('?') !== -1 ? '&' : '?';
-      finalBilibiliUrl += sep + 'autoplay=0';
+    var match = url.match(/(track|album|playlist|episode)\/([a-zA-Z0-9]+)/);
+    if (match) {
+      var embedUrl = 'https://open.spotify.com/embed/' + match[1] + '/' + match[2] + '?utm_source=generator';
+      embedHTML = '<iframe src="' + embedUrl + '" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
     }
-
-    iframeHtml = '<iframe style="border-radius:0 0 14px 14px; display:block; width:100%; height:203px;" src="' + finalBilibiliUrl + '" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>';
+  } else if (type === 'bilibili') {
+    var bvidMatch = url.match(/(BV[a-zA-Z0-9]+)/);
+    if (bvidMatch) {
+      var pMatch = url.match(/[?&]p=(\d+)/);
+      var page = pMatch ? pMatch[1] : '1';
+      var embedUrl = 'https://www.bilibili.com/blackboard/html5mobileplayer.html?bvid=' + bvidMatch[1] + '&page=' + page + '&high_quality=1&danmaku=0';
+      embedHTML = '<div style="position:relative;width:100%;height:0;padding-bottom:62.5%;"><iframe src="' + embedUrl + '" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute;width:100%;height:100%;top:0;left:0;"></iframe></div>';
+    }
+  } else if (type === 'youtube') {
+    var ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    if (ytMatch) {
+      var embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1] + '?autoplay=1';
+      embedHTML = '<div style="position:relative;width:100%;height:0;padding-bottom:56.25%;"><iframe src="' + embedUrl + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;width:100%;height:100%;top:0;left:0;"></iframe></div>';
+    }
   }
 
-  container.innerHTML = iframeHtml;
-  player.style.display = 'flex';
+  if (embedHTML) {
+    container.innerHTML = embedHTML;
+    player.style.display = 'flex';
+  }
 }
 
 function closeMediaFloatPlayer() {
   var player = document.getElementById('media-float-player');
   var container = document.getElementById('media-iframe-container');
-  player.style.display = 'none';
   container.innerHTML = '';
+  player.style.display = 'none';
 }
 
-function openCapsuleLightbox(imgSrc) {
+function openCapsuleLightbox(src) {
   var lightbox = document.getElementById('capsule-lightbox');
-  var lightboxImg = document.getElementById('capsule-lightbox-img');
-  lightboxImg.src = imgSrc;
+  var img = document.getElementById('capsule-lightbox-img');
+  img.src = src;
   lightbox.style.display = 'flex';
 }
 
@@ -6276,20 +6871,6 @@ function closeCapsuleLightbox() {
   var lightbox = document.getElementById('capsule-lightbox');
   lightbox.style.display = 'none';
 }
-
-
-var processedHtml = fullHtml;
-
-
-
-
-
-
-processedHtml = processedHtml.replace(/(<br\s*\/?>)\s*\n/gi, '$1');
-processedHtml = processedHtml.replace(/\n\s*(<br\s*\/?>)/gi, '$1');
-
-
-processedHtml = processedHtml.replace(/\n/g, '<br>');
 </script>
 
   </article>
